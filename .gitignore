@@ -1,6 +1,7 @@
 # Ignore local UiPath project settings and logs
 .project/
 .settings/
+.objects/
 .local/
 UiPath.settings
 UiPath.local/

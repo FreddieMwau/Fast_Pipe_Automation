@@ -43,7 +43,6 @@
 
 1. Open the `Config.xaml` file.
 2. Configure the following variables:
-   - **BidSource**: Path to the folder or API where bids are stored.
    - **ExcelPipeline**: Path to your Excel pipeline file.
    - **BackupLocation**: Shared file location for backups.
    - **EmailSettings**: Configure email SMTP settings to send notifications.
@@ -55,16 +54,32 @@
 1. Open `Main.xaml` and run the automation from UiPath Studio.
 2. The automation will:
    - Download bids with due dates in the next two weeks.
-   - Update the Excel pipeline with new bids.
-   - Send email notifications to relevant parties.
    - Upload the projects to **FastPipe**.
    - Create backups of the projects in the designated shared file location.
+   - Update the Excel pipeline with new bids.
+   - Send email notifications to relevant parties.
 
 ---
 
 ### **5. Schedule Automation (Optional)**
 
-If you want to schedule the automation, you can deploy the project to **UiPath Orchestrator** and schedule it to run at specific times.
+Since this automation will not be deployed to **UiPath Orchestrator**, you can run it locally by scheduling it using one of the following methods:
+
+1. **Windows Task Scheduler**:
+   - Use Windows Task Scheduler to run the automation at specific times.
+   - Create a task that executes the `UiRobot.exe` with the path to your project’s `.xaml` file or `.nupkg` package.
+
+2. **Manual Execution**:
+   - Open `UiPath Studio` or `UiPath Assistant`.
+   - Select and run the automation manually as needed.
+
+3. **Batch File Execution (Optional)**:
+   - Create a `.bat` file to trigger the automation for convenience.
+   - Example:
+     ```bash
+     "C:\Users\YourUser\AppData\Local\UiPath\app-xx.x.x\UiRobot.exe" -file "C:\Path\To\Main.xaml"
+     ```
+   - Schedule the `.bat` file using Windows Task Scheduler if desired.
 
 ---
 
@@ -72,7 +87,7 @@ If you want to schedule the automation, you can deploy the project to **UiPath O
 
 - **UiPath**: For automation.
 - **Microsoft Excel**: For pipeline updates.
-- **SMTP**: For email notifications.
+- **Outlook**: For email notifications.
 - **FastPipe**: For project estimation.
 - **Shared File Storage**: For backups.
 
@@ -86,5 +101,5 @@ Contributions are welcome! To contribute:
 2. **Clone the Repository**:  
    Clone your forked repository to your local machine using:
    ```bash
-   git clone https://github.com/FreddieMwau/Fast_Pipe_Automation.git
+   git clone https://github.com/your-username/repository-name.git
    ```

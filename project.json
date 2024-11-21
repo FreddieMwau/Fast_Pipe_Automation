@@ -4,7 +4,9 @@
   "description": "Thie automation is incharge of downloading Building Schematics in the range of 2 weeks away from due date, load them onto Fast Pipe, create backup of the project in Shared Folders and log all transactions in a Pipeline Excel Sheet",
   "main": "Main.xaml",
   "dependencies": {
+    "UiPath.Credentials.Activities": "[2.1.0]",
     "UiPath.Excel.Activities": "[2.24.2]",
+    "UiPath.Mail.Activities": "[1.24.2]",
     "UiPath.System.Activities": "[24.10.6]",
     "UiPath.Testing.Activities": "[24.10.3]",
     "UiPath.UIAutomation.Activities": "[24.10.6]"
