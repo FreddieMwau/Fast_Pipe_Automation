@@ -2,6 +2,7 @@
   <x:Members>
     <x:Property Name="in_str_PanteraCredentials" Type="InArgument(x:String)" />
     <x:Property Name="in_str_PanteraURL" Type="InArgument(x:String)" />
+    <x:Property Name="out_ui_PanteraBrowser" Type="OutArgument(ui:Browser)" />
   </x:Members>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
@@ -126,7 +127,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <p:GetSecureCredential CredentialType="Generic" DisplayName="Get Pantera Credentials" sap:VirtualizedContainerService.HintSize="467,112" sap2010:WorkflowViewState.IdRef="GetSecureCredential_1" Password="[str_PanteraPassword]" PersistanceType="Enterprise" Target="[in_str_PanteraCredentials]" Username="[str_PanteraUsername]" />
-          <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Open Pantera Log In Page" sap:VirtualizedContainerService.HintSize="467,1193" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="[in_str_PanteraURL]">
+          <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="Edge" DisplayName="Open Pantera Log In Page" sap:VirtualizedContainerService.HintSize="467,1193" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[out_ui_PanteraBrowser]" Url="[in_str_PanteraURL]">
             <ui:OpenBrowser.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
@@ -189,7 +190,7 @@
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,173" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[&quot;Log In Success&quot;]" />
                   <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Extract_Pantera_Bids - Invoke Workflow File (FastPipe\Extract_Pantera_Bids.xaml)" sap:VirtualizedContainerService.HintSize="382,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="FastPipe\Extract_Pantera_Bids.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                      <InArgument x:TypeArguments="ui:Browser" x:Key="in_ui_PanteraBrowser">[out_ui_PanteraBrowser]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                 </Sequence>
