@@ -144,7 +144,8 @@
                     </ui:InvokeWorkflowFile>
                     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Duplicates_Validation - Invoke Workflow File (FastPipe\Duplicates_Validation.xaml)" sap:VirtualizedContainerService.HintSize="382,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="FastPipe\Duplicates_Validation.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
-                        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dt_FilteredBids">[io_dt_TransactionData]</InOutArgument>
+                        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_FilteredBids">[dt_FilteredBids]</InArgument>
+                        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_FilteredBids">[io_dt_TransactionData]</OutArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
                   </Sequence>

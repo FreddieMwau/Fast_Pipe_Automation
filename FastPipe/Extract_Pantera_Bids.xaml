@@ -194,7 +194,7 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:MultipleAssign sap2010:Annotation.AnnotationText="States Filter holds an array of the States we're focusing on for Bids&#xA;Filtered Rows will filter through the extracted Pantera Bids with a Linq Query.&#xA;&#xA;Linq Query - A function that will filter through the Bids according to States needed and Deadline for Bid submission which is between 14-20 days from now." DisplayName="Assign - str_StatesFilter &amp; list_FilteredRows" sap:VirtualizedContainerService.HintSize="502,266" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                <ui:MultipleAssign sap2010:Annotation.AnnotationText="States Filter holds an array of the States we're focusing on for Bids&#xA;Filtered Rows will filter through the extracted Pantera Bids with a Linq Query.&#xA;&#xA;Linq Query - A function that will filter through the Bids according to States needed and Deadline for Bid submission which is between 3-10 days from now." DisplayName="Assign - str_StatesFilter &amp; list_FilteredRows" sap:VirtualizedContainerService.HintSize="502,266" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                   <ui:MultipleAssign.AssignOperations>
                     <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -212,8 +212,8 @@
                         <ui:AssignOperation.Value>
                           <InArgument x:TypeArguments="scg:List(sd:DataRow)" xml:space="preserve">[(From row In dt_PanteraBidsDT.AsEnumerable()
                         Where Not String.IsNullOrEmpty(row("Bids Due").ToString()) AndAlso DateTime.TryParse(row("Bids Due").ToString(), Nothing) _
-                        AndAlso DateTime.Parse(row("Bids Due").ToString()) &gt;= DateTime.Now.AddDays(14) _
-                        AndAlso DateTime.Parse(row("Bids Due").ToString()) &lt;= DateTime.Now.AddDays(20) _
+                        AndAlso DateTime.Parse(row("Bids Due").ToString()) &gt;= DateTime.Now.AddDays(3) _
+                        AndAlso DateTime.Parse(row("Bids Due").ToString()) &lt;= DateTime.Now.AddDays(10) _
                         AndAlso str_StatesFilter.Contains(row("State").ToString())
                         Select row).ToList()]</InArgument>
                         </ui:AssignOperation.Value>

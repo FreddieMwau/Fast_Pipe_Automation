@@ -12,6 +12,7 @@ Logs/
 *.cache/
 Output/
 .publish/
+.storage/
 
 # Ignore files created by UiPath when debugging or testing
 *.state
