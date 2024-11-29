@@ -1,11 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Extract_Pantera_Bids" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <x:Members>
-    <x:Property Name="in_ui_PanteraBrowser" Type="InArgument(ui:Browser)" />
-  </x:Members>
-  <VisualBasic.Settings>
-    <x:Null />
-  </VisualBasic.Settings>
-  <sap2010:WorkflowViewState.IdRef>Extract_Pantera_Bids_1</sap2010:WorkflowViewState.IdRef>
+<Activity mc:Ignorable="sap sap2010" x:Class="Extract_Pantera_Bids" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="Extract_Pantera_Bids_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -118,7 +111,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Extract_Pantera_Bids" sap:VirtualizedContainerService.HintSize="1530,2273" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Extract_Pantera_Bids" sap:VirtualizedContainerService.HintSize="1530,2313" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="dt_PanteraBidsDT" />
       <Variable x:TypeArguments="scg:List(sd:DataRow)" Name="list_FilteredRows" />
@@ -129,9 +122,9 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="642,2250" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="642,2290" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="Extract Table Bids" sap:VirtualizedContainerService.HintSize="604,1977" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Extract Table Bids" sap:VirtualizedContainerService.HintSize="604,2017" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="s:String[]" Name="str_StatesFilter" />
           </Sequence.Variables>
@@ -148,13 +141,13 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:LogMessage>
-          <Sequence DisplayName="Extracting Pantera Bids Table" sap:VirtualizedContainerService.HintSize="570,452" sap2010:WorkflowViewState.IdRef="Sequence_22">
+          <Sequence DisplayName="Extracting Pantera Bids Table" sap:VirtualizedContainerService.HintSize="570,492" sap2010:WorkflowViewState.IdRef="Sequence_22">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Pantera Bids" sap:VirtualizedContainerService.HintSize="450,360" sap2010:WorkflowViewState.IdRef="BrowserScope_6" InformativeScreenshot="dc90c602bd56850125cdee925cd22796" Selector="&lt;html app='msedge.exe' title='Project Invites' /&gt;">
+            <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Pantera Bids" sap:VirtualizedContainerService.HintSize="450,400" sap2010:WorkflowViewState.IdRef="BrowserScope_6" InformativeScreenshot="dc90c602bd56850125cdee925cd22796" Selector="&lt;html app='msedge.exe' title='Project Invites' /&gt;">
               <ui:BrowserScope.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
@@ -167,9 +160,9 @@
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:ExtractData DelayBetweenPagesMS="{x:Null}" ContinueOnError="True" DataTable="[dt_PanteraBidsDT]" DisplayName="Extract Pantera Bid Table Content " ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='fulltext' /&gt;&lt;column name='Name' attr='fulltext' /&gt;&lt;column name='General Contractor' attr='fulltext' /&gt;&lt;column name='City' attr='fulltext' /&gt;&lt;column name='State' attr='fulltext' /&gt;&lt;column name='Bids Due' attr='fulltext' /&gt;&lt;column name='Column-6' attr='fulltext' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="382,130" sap2010:WorkflowViewState.IdRef="ExtractData_4" MaxNumberOfResults="3500" NextLinkSelector="&lt;webctrl css-selector='body&amp;gt;form&amp;gt;div&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li' idx='9' tag='LI' /&gt;" SimulateClick="True">
+                    <ui:ExtractData DelayBetweenPagesMS="{x:Null}" ContinueOnError="True" DataTable="[dt_PanteraBidsDT]" DisplayName="Extract Pantera Bid Table Content " ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Name' attr='fulltext' /&gt;&lt;column name='General Contractor' attr='fulltext' /&gt;&lt;column name='City' attr='fulltext' /&gt;&lt;column name='State' attr='fulltext' /&gt;&lt;column name='Bids Due' attr='fulltext' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="382,130" sap2010:WorkflowViewState.IdRef="ExtractData_4" MaxNumberOfResults="3500" NextLinkSelector="&lt;webctrl css-selector='body&amp;gt;form&amp;gt;div&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li' idx='9' tag='LI' /&gt;" SimulateClick="True">
                       <ui:ExtractData.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6514b3cf-7724-4b7f-a91c-d259f0f3d581" InformativeScreenshot="05841f0ed18b5a3d61ec2acfdcb70b68" Selector="&lt;webctrl id='dt_14337' tag='TABLE' /&gt;" WaitForReady="COMPLETE">
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6514b3cf-7724-4b7f-a91c-d259f0f3d581" InformativeScreenshot="05841f0ed18b5a3d61ec2acfdcb70b68" Selector="&lt;webctrl tag='TABLE' aaname=' Name General Contractor City State Bids Due' /&gt;" WaitForReady="COMPLETE">
                           <ui:Target.TimeoutMS>
                             <InArgument x:TypeArguments="x:Int32" />
                           </ui:Target.TimeoutMS>

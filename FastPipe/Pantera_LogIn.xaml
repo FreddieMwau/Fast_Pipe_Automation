@@ -108,15 +108,15 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="1530,1639" sap2010:WorkflowViewState.IdRef="Sequence_12">
+  <Sequence sap:VirtualizedContainerService.HintSize="1530,1584" sap2010:WorkflowViewState.IdRef="Sequence_12">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="539,1616" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="539,1561" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="Log In" sap:VirtualizedContainerService.HintSize="501,1365" sap2010:WorkflowViewState.IdRef="Sequence_10">
+        <Sequence DisplayName="Log In" sap:VirtualizedContainerService.HintSize="501,1310" sap2010:WorkflowViewState.IdRef="Sequence_10">
           <Sequence.Variables>
             <Variable x:TypeArguments="ss:SecureString" Name="str_PanteraPassword" />
             <Variable x:TypeArguments="x:String" Name="str_PanteraUsername" />
@@ -127,19 +127,20 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <p:GetSecureCredential CredentialType="Generic" DisplayName="Get Pantera Credentials" sap:VirtualizedContainerService.HintSize="467,112" sap2010:WorkflowViewState.IdRef="GetSecureCredential_1" Password="[str_PanteraPassword]" PersistanceType="Enterprise" Target="[in_str_PanteraCredentials]" Username="[str_PanteraUsername]" />
-          <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="Edge" DisplayName="Open Pantera Log In Page" sap:VirtualizedContainerService.HintSize="467,1193" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[out_ui_PanteraBrowser]" Url="[in_str_PanteraURL]">
+          <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="Edge" DisplayName="Open Pantera Log In Page" sap:VirtualizedContainerService.HintSize="467,1138" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[out_ui_PanteraBrowser]" Url="[in_str_PanteraURL]">
             <ui:OpenBrowser.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,1045" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,990" sap2010:WorkflowViewState.IdRef="Sequence_11">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="382,57" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
+                  <Delay DisplayName="Delay 5s" Duration="00:00:05" sap:VirtualizedContainerService.HintSize="382,122" sap2010:WorkflowViewState.IdRef="Delay_2" />
                   <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Username" sap:VirtualizedContainerService.HintSize="382,187" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[str_PanteraUsername]">
                     <ui:TypeInto.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="39963397-3fdb-4e03-8b22-b1a820b472a5" InformativeScreenshot="34b7ecdc25a4d27d249d6882e8bb9523" Selector="&lt;webctrl parentid='pjq-main' tag='INPUT' /&gt;">
@@ -187,12 +188,7 @@
                     </ui:Click.Target>
                   </ui:Click>
                   <Delay DisplayName="Delay 10s" Duration="00:00:10" sap:VirtualizedContainerService.HintSize="382,122" sap2010:WorkflowViewState.IdRef="Delay_1" />
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,173" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[&quot;Log In Success&quot;]" />
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Extract_Pantera_Bids - Invoke Workflow File (FastPipe\Extract_Pantera_Bids.xaml)" sap:VirtualizedContainerService.HintSize="382,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="FastPipe\Extract_Pantera_Bids.xaml">
-                    <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="ui:Browser" x:Key="in_ui_PanteraBrowser">[out_ui_PanteraBrowser]</InArgument>
-                    </ui:InvokeWorkflowFile.Arguments>
-                  </ui:InvokeWorkflowFile>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[&quot;Log In Success&quot;]" />
                 </Sequence>
               </ActivityAction>
             </ui:OpenBrowser.Body>
