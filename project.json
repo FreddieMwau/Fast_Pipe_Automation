@@ -7,6 +7,7 @@
     "UiPath.Credentials.Activities": "[2.1.0]",
     "UiPath.Excel.Activities": "[2.24.3]",
     "UiPath.Mail.Activities": "[1.24.2]",
+    "UiPath.MicrosoftTeams.Activities": "[1.0.1]",
     "UiPath.System.Activities": "[24.10.6]",
     "UiPath.Testing.Activities": "[24.10.3]",
     "UiPath.UIAutomation.Activities": "[24.10.8]"

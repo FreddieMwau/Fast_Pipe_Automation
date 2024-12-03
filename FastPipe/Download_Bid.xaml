@@ -6,6 +6,7 @@
     <x:Property Name="in_str_DestinationFolderPath" Type="InArgument(x:String)" />
     <x:Property Name="in_str_BidFolderName" Type="InArgument(x:String)" />
     <x:Property Name="out_str_PlansPDFFilePath" Type="OutArgument(x:String)" />
+    <x:Property Name="io_dr_CurrentRow" Type="InOutArgument(sd:DataRow)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -121,7 +122,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch sap2010:Annotation.AnnotationText="This sequence will perform the following:&#xD;&#xA;- Search for a specific bid by Name.&#xD;&#xA;- Download the bid." DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="624,2739" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch sap2010:Annotation.AnnotationText="This sequence will perform the following:&#xA;- Search for a specific bid by Name.&#xA;- Download the bid." DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="624,2739" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -199,7 +200,7 @@
                     <Delay DisplayName="Delay 10s" Duration="00:00:10" sap:VirtualizedContainerService.HintSize="450,122" sap2010:WorkflowViewState.IdRef="Delay_1" />
                     <ui:UiElementExists DisplayName="Download Buttons Exist" Exists="[out_bool_DocumentsFound]" sap:VirtualizedContainerService.HintSize="450,139" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
                       <ui:UiElementExists.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5b24bbc1-a3a7-44b7-887a-fca3ebc52bd8" InformativeScreenshot="20507027174bc9687f35a0e72d147bdc" Selector="&lt;html app='msedge.exe' title='Dashboard' /&gt;&lt;webctrl css-selector='body&amp;gt;form&amp;gt;div&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='3' parentid='pjq-main' tag='DIV' /&gt;">
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5b24bbc1-a3a7-44b7-887a-fca3ebc52bd8" InformativeScreenshot="20507027174bc9687f35a0e72d147bdc" Selector="&lt;html app='msedge.exe' title='Dashboard' /&gt;&lt;webctrl class='ml-auto' parentid='pjq-main' tag='DIV' /&gt;">
                           <ui:Target.TimeoutMS>
                             <InArgument x:TypeArguments="x:Int32" />
                           </ui:Target.TimeoutMS>
@@ -265,6 +266,7 @@
                         <InArgument x:TypeArguments="x:String" x:Key="in_str_DestinationFolderPath">[in_str_DestinationFolderPath]</InArgument>
                         <InArgument x:TypeArguments="x:String" x:Key="in_str_BidFolderName">[in_str_BidFolderName]</InArgument>
                         <OutArgument x:TypeArguments="x:String" x:Key="out_str_PlansPDFFilePath">[out_str_PlansPDFFilePath]</OutArgument>
+                        <InOutArgument x:TypeArguments="sd:DataRow" x:Key="io_dr_CurrentRow">[io_dr_CurrentRow]</InOutArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
                   </Sequence>
@@ -295,6 +297,21 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
+            <Sequence DisplayName="System Exception" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_7">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign DisplayName="Assign Error Message" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Object">[io_dr_CurrentRow("Error Message")]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Object">["Error Message : " + exception.Message + " Source : " + exception.Source]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>
