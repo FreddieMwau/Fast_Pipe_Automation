@@ -11,6 +11,7 @@ Logs/
 *.screenshots/
 *.cache/
 Output/
+Exceptions_Screenshots/
 .publish/
 .storage/
 

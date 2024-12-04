@@ -1,9 +1,12 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(sd:DataRow)" />
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="out_bool_DocumentsFound" Type="OutArgument(x:Boolean)" />
     <x:Property Name="io_dr_CurrentRow" Type="InOutArgument(sd:DataRow)" />
+    <x:Property Name="out_BusinessException" Type="OutArgument(ui:BusinessRuleException)" />
+    <x:Property Name="out_str_DestinationFolderPath" Type="OutArgument(x:String)" />
+    <x:Property Name="out_SystemException" Type="OutArgument(s:Exception)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -99,10 +102,9 @@
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1530,918" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1244,918" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_DownloadFolderPath" />
-      <Variable x:TypeArguments="x:String" Name="str_DestinationFolderPath" />
       <Variable x:TypeArguments="x:String" Name="str_BidFolderName" />
       <Variable x:TypeArguments="x:String" Name="str_PlansPDFFilePath" />
     </Sequence.Variables>
@@ -113,7 +115,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
-    <ui:MultipleAssign sap2010:Annotation.AnnotationText="str_DownloadFolderPath - Holds the where the bids will be downloaded to.&#xD;&#xA;str_DestinationFolderPath - Holds the folder path of where the bids will be backed up.&#xD;&#xA;str_BidFolderName - Holds the name of the current bid being processed&#xD;&#xA;&#xD;&#xA;** Also will hold the initial values of the bid being processed, assigned to a Data Row io_dr_CurrentRow" DisplayName="Assign Process Variables" sap:VirtualizedContainerService.HintSize="479,482" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign sap2010:Annotation.AnnotationText="str_DownloadFolderPath - Holds the where the bids will be downloaded to.&#xA;str_DestinationFolderPath - Holds the folder path of where the bids will be backed up.&#xA;str_BidFolderName - Holds the name of the current bid being processed&#xA;&#xA;** Also will hold the initial values of the bid being processed, assigned to a Data Row io_dr_CurrentRow" DisplayName="Assign Process Variables" sap:VirtualizedContainerService.HintSize="479,482" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -126,7 +128,7 @@
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
             <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:String">[str_DestinationFolderPath]</OutArgument>
+              <OutArgument x:TypeArguments="x:String">[out_str_DestinationFolderPath]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
               <InArgument x:TypeArguments="x:String">[in_Config("Bids_Destination_Folder_Path").ToString]</InArgument>
@@ -177,7 +179,7 @@
               <OutArgument x:TypeArguments="x:Object">[io_dr_CurrentRow("Bid Due Date")]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:Object">[in_TransactionItem("Bids Due").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:Object">[DateTime.Parse(in_TransactionItem("Bids Due").ToString).ToShortDateString]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
         </scg:List>
@@ -195,10 +197,12 @@
         <InArgument x:TypeArguments="sd:DataRow" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
         <OutArgument x:TypeArguments="x:Boolean" x:Key="out_bool_DocumentsFound">[out_bool_DocumentsFound]</OutArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_str_DownloadFolderPath">[str_DownloadFolderPath]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_str_DestinationFolderPath">[str_DestinationFolderPath]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_str_DestinationFolderPath">[out_str_DestinationFolderPath]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_str_BidFolderName">[str_BidFolderName]</InArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="out_str_PlansPDFFilePath">[str_PlansPDFFilePath]</OutArgument>
         <InOutArgument x:TypeArguments="sd:DataRow" x:Key="io_dr_CurrentRow">[io_dr_CurrentRow]</InOutArgument>
+        <OutArgument x:TypeArguments="ui:BusinessRuleException" x:Key="out_BusinessException">[out_BusinessException]</OutArgument>
+        <OutArgument x:TypeArguments="s:Exception" x:Key="out_SystemException">[out_SystemException]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
   </Sequence>

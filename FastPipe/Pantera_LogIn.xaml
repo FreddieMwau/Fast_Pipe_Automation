@@ -108,7 +108,7 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="1530,1882" sap2010:WorkflowViewState.IdRef="Sequence_12">
+  <Sequence sap:VirtualizedContainerService.HintSize="1244,1882" sap2010:WorkflowViewState.IdRef="Sequence_12">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -150,7 +150,7 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Username" sap:VirtualizedContainerService.HintSize="382,178" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[str_PanteraUsername]">
+                          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Username" sap:VirtualizedContainerService.HintSize="382,178" sap2010:WorkflowViewState.IdRef="TypeInto_2" SimulateType="True" Text="[str_PanteraUsername]">
                             <ui:TypeInto.Target>
                               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="39963397-3fdb-4e03-8b22-b1a820b472a5" InformativeScreenshot="34b7ecdc25a4d27d249d6882e8bb9523" Selector="&lt;webctrl parentid='pjq-main' tag='INPUT' /&gt;">
                                 <ui:Target.TimeoutMS>
@@ -169,7 +169,7 @@
                       <ActivityFunc x:TypeArguments="x:Boolean" />
                     </ui:RetryScope.Condition>
                   </ui:RetryScope>
-                  <ui:TypeSecureText AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Password" sap:VirtualizedContainerService.HintSize="458,139" sap2010:WorkflowViewState.IdRef="TypeSecureText_2" SecureText="[str_PanteraPassword]">
+                  <ui:TypeSecureText AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Password" sap:VirtualizedContainerService.HintSize="458,139" sap2010:WorkflowViewState.IdRef="TypeSecureText_2" SecureText="[str_PanteraPassword]" SimulateType="True">
                     <ui:TypeSecureText.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4f61a41c-00d7-4ab9-910c-d814c5874bd1" InformativeScreenshot="859187a90b91013477de6020c22dd364" Selector="&lt;webctrl tag='INPUT' type='password' /&gt;">
                         <ui:Target.TimeoutMS>

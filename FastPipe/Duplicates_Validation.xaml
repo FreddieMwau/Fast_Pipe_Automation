@@ -107,7 +107,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Duplicates_Validation" sap:VirtualizedContainerService.HintSize="1530,1509" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Duplicates_Validation" sap:VirtualizedContainerService.HintSize="1244,1509" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -133,14 +133,14 @@
               </InArgument>
             </ui:ReadRange.Range>
           </ui:ReadRange>
-          <Assign sap2010:Annotation.AnnotationText="The LINQ Query will check for duplicates and remove them from dt_FilteredBids" DisplayName="Check and remove duplicate records" sap:VirtualizedContainerService.HintSize="502,159" sap2010:WorkflowViewState.IdRef="Assign_1">
+          <Assign sap2010:Annotation.AnnotationText="The LINQ Query will check for duplicates and remove them from dt_FilteredBids" DisplayName="Check and remove duplicate records" sap:VirtualizedContainerService.HintSize="502,157" sap2010:WorkflowViewState.IdRef="Assign_1">
             <Assign.To>
               <OutArgument x:TypeArguments="sd:EnumerableRowCollection(sd:DataRow)">[enum_filteredRows]</OutArgument>
             </Assign.To>
             <Assign.Value>
               <InArgument x:TypeArguments="sd:EnumerableRowCollection(sd:DataRow)" xml:space="preserve">[in_dt_FilteredBids.AsEnumerable().
     Where(Function(row2) Not dt_ExistingBids.AsEnumerable().
-        Any(Function(row1) row1("Name").ToString().Trim().ToLower() = row2("Name").ToString().Trim().ToLower()))]</InArgument>
+        Any(Function(row1) row1("Bid Name").ToString().Trim().ToLower() = row2("Name").ToString().Trim().ToLower()))]</InArgument>
             </Assign.Value>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -148,7 +148,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </Assign>
-          <If Condition="[enum_filteredRows.Any()]" sap:VirtualizedContainerService.HintSize="502,620" sap2010:WorkflowViewState.IdRef="If_1">
+          <If Condition="[enum_filteredRows.Any()]" sap:VirtualizedContainerService.HintSize="502,622" sap2010:WorkflowViewState.IdRef="If_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -156,13 +156,13 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,164" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_3">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign sap:VirtualizedContainerService.HintSize="434,104" sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_2">
                   <Assign.To>
                     <OutArgument x:TypeArguments="sd:DataTable">[out_dt_FilteredBids]</OutArgument>
                   </Assign.To>
@@ -173,13 +173,13 @@
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,286" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,287" sap2010:WorkflowViewState.IdRef="Sequence_4">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="Assign_3">
+                <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_3">
                   <Assign.To>
                     <OutArgument x:TypeArguments="sd:DataTable">[out_dt_FilteredBids]</OutArgument>
                   </Assign.To>
