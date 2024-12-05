@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Extract_Zip_Move_Folder" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:uascw="clr-namespace:UiPath.Activities.System.Compression.Workflow;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Extract_Zip_Move_Folder" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:uascw="clr-namespace:UiPath.Activities.System.Compression.Workflow;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_str_DownloadFolderPath" Type="InArgument(x:String)" />
     <x:Property Name="in_str_DestinationFolderPath" Type="InArgument(x:String)" />
@@ -58,6 +58,11 @@
       <x:String>UiPath.Platform.SyncObjects</x:String>
       <x:String>UiPath.Testing</x:String>
       <x:String>UiPath.Testing.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Services.RuntimeAnalyze</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -129,24 +134,20 @@
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
       <AssemblyReference>UiPath.Testing</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Extract_Zip_Move_Folder" sap:VirtualizedContainerService.HintSize="1530,7594" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Extract_Zip_Move_Folder" sap:VirtualizedContainerService.HintSize="1237,8674" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_ExtractionFolder" />
       <Variable x:TypeArguments="x:String" Name="str_FoldersPresent" />
-      <Variable x:TypeArguments="x:Boolean" Name="bool_ShouldDelete">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:Boolean" Value="True" />
-        </Variable.Default>
-      </Variable>
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="687,7571" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="687,6937" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Variables>
         <Variable x:TypeArguments="x:String" Name="str_FolderName" />
       </TryCatch.Variables>
@@ -156,7 +157,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="649,7292" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence sap:VirtualizedContainerService.HintSize="649,6687" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="str_ExpectedFile" />
             <Variable x:TypeArguments="s:String[]" Name="str_TempFile" />
@@ -179,15 +180,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:LogMessage>
-          <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Temporary Extraction Folder" sap:VirtualizedContainerService.HintSize="615,57" sap2010:WorkflowViewState.IdRef="CreateDirectory_3" Path="[in_str_DownloadFolderPath+&quot;/TemporaryExtract&quot;]">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:CreateDirectory>
-          <ui:MultipleAssign sap2010:Annotation.AnnotationText="str_ExpectedFile - holds the expected zip file that should be downloaded.&#xA;bool_FileDownloaded - a Boolean to validate whether the file was downloaded&#xA;datetime_StartDownloadTime - holds the time of when the download of the file started" DisplayName="Assign Variables" sap:VirtualizedContainerService.HintSize="615,213" sap2010:WorkflowViewState.IdRef="MultipleAssign_18">
+          <ui:MultipleAssign sap2010:Annotation.AnnotationText="str_ExpectedFile - holds the expected zip file that should be downloaded.&#xA;bool_FileDownloaded - a Boolean to validate whether the file was downloaded&#xA;datetime_StartDownloadTime - holds the time of when the download of the file started" DisplayName="Assign Variables" sap:VirtualizedContainerService.HintSize="615,313" sap2010:WorkflowViewState.IdRef="MultipleAssign_18">
             <ui:MultipleAssign.AssignOperations>
               <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_45">
@@ -214,25 +207,41 @@
                     <InArgument x:TypeArguments="s:DateTime">[DateTime.Now]</InArgument>
                   </ui:AssignOperation.Value>
                 </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_72">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[str_ExtractionFolder]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">[in_str_DownloadFolderPath+"\TemporaryExtract"]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
               </scg:List>
             </ui:MultipleAssign.AssignOperations>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:MultipleAssign>
-          <ui:InterruptibleWhile CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="In this While Loop :&#xA;- Setting a maximum download timeout of 90 minutes.&#xA;- Adding delays while download is progressing.&#xA;- Validating download is completed successfully." Condition="True" DisplayName="While" sap:VirtualizedContainerService.HintSize="615,1784" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_3">
+          <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Temporary Extraction Folder" sap:VirtualizedContainerService.HintSize="615,112" sap2010:WorkflowViewState.IdRef="CreateDirectory_3" Path="[str_ExtractionFolder]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:CreateDirectory>
+          <ui:InterruptibleWhile CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="In this While Loop :&#xA;- Setting a maximum download timeout of 90 minutes.&#xA;- Adding delays while download is progressing.&#xA;- Validating download is completed successfully." DisplayName="While" sap:VirtualizedContainerService.HintSize="615,2195" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_3">
             <ui:InterruptibleWhile.Body>
-              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="581,1561" sap2010:WorkflowViewState.IdRef="Sequence_89">
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="581,1977" sap2010:WorkflowViewState.IdRef="Sequence_89">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <If sap2010:Annotation.AnnotationText="This validation will throw an exception if the download exceeds 90 minutes" Condition="[(DateTime.Now - datetime_StartDownloadTime).TotalMinutes &gt; 90]" DisplayName="Validate Download Timeout" sap:VirtualizedContainerService.HintSize="547,117" sap2010:WorkflowViewState.IdRef="If_27">
+                <If sap2010:Annotation.AnnotationText="This validation will throw an exception if the download exceeds 90 minutes" Condition="[(DateTime.Now - datetime_StartDownloadTime).TotalMinutes &gt; 90]" DisplayName="Validate Download Timeout Exception" sap:VirtualizedContainerService.HintSize="547,114" sap2010:WorkflowViewState.IdRef="If_27">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -247,7 +256,7 @@
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Throw DisplayName="Throw System Exception" Exception="[new Exception(&quot;Download Timeout exceeded 10 mins&quot;)]" sap:VirtualizedContainerService.HintSize="382,113" sap2010:WorkflowViewState.IdRef="Throw_10" />
+                      <Throw DisplayName="Throw System Exception" Exception="[new Exception(&quot;Download Timeout exceeded 90 mins&quot;)]" sap:VirtualizedContainerService.HintSize="382,113" sap2010:WorkflowViewState.IdRef="Throw_10" />
                     </Sequence>
                   </If.Then>
                   <If.Else>
@@ -260,7 +269,7 @@
                     </Sequence>
                   </If.Else>
                 </If>
-                <Assign sap2010:Annotation.AnnotationText="This variable holds the temporary file paths of  &quot;.crdownload&quot; files that's always created while download isn't completed" DisplayName="Assign - str_TempFile" sap:VirtualizedContainerService.HintSize="547,159" sap2010:WorkflowViewState.IdRef="Assign_22">
+                <Assign sap2010:Annotation.AnnotationText="This variable holds the temporary file paths of  &quot;.crdownload&quot; files that's always created while download isn't completed" DisplayName="Assign - str_TempFile" sap:VirtualizedContainerService.HintSize="547,144" sap2010:WorkflowViewState.IdRef="Assign_31">
                   <Assign.To>
                     <OutArgument x:TypeArguments="s:String[]">[str_TempFile]</OutArgument>
                   </Assign.To>
@@ -270,10 +279,92 @@
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </Assign>
-                <If sap2010:Annotation.AnnotationText="This validation will add a delay of 30 seconds while download is progressing" Condition="[str_TempFile.Length &gt; 0]" DisplayName="Validates if Download is on going" sap:VirtualizedContainerService.HintSize="547,466" sap2010:WorkflowViewState.IdRef="If_28">
+                <ui:IfElseIfV2 sap2010:Annotation.AnnotationText="This validation will add a delay of 30 seconds while download is progressing" Condition="[str_TempFile.Length &gt; 0]" DisplayName="Validates if Download is on going" sap:VirtualizedContainerService.HintSize="547,918" sap2010:WorkflowViewState.IdRef="IfElseIfV2_1">
+                  <ui:IfElseIfV2.Else>
+                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_124">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Sequence>
+                  </ui:IfElseIfV2.Else>
+                  <ui:IfElseIfV2.ElseIfs>
+                    <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                      <ui:IfElseIfBlock BlockType="ElseIf" Condition="[str_TempFile.Length = 0]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_1">
+                        <ui:IfElseIfBlock.Then>
+                          <Sequence DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="513,352" sap2010:WorkflowViewState.IdRef="Sequence_125">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:MultipleAssign DisplayName="Assign Business Exception Variables" sap:VirtualizedContainerService.HintSize="479,179" sap2010:WorkflowViewState.IdRef="MultipleAssign_26">
+                              <ui:MultipleAssign.AssignOperations>
+                                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_64">
+                                    <ui:AssignOperation.To>
+                                      <OutArgument x:TypeArguments="x:Object">[io_dr_CurrentRow("Loaded on FastPipe")]</OutArgument>
+                                    </ui:AssignOperation.To>
+                                    <ui:AssignOperation.Value>
+                                      <InArgument x:TypeArguments="x:Object">[False]</InArgument>
+                                    </ui:AssignOperation.Value>
+                                  </ui:AssignOperation>
+                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_66">
+                                    <ui:AssignOperation.To>
+                                      <OutArgument x:TypeArguments="x:Object">[io_dr_CurrentRow("Backed Up")]</OutArgument>
+                                    </ui:AssignOperation.To>
+                                    <ui:AssignOperation.Value>
+                                      <InArgument x:TypeArguments="x:Object">[False]</InArgument>
+                                    </ui:AssignOperation.Value>
+                                  </ui:AssignOperation>
+                                </scg:List>
+                              </ui:MultipleAssign.AssignOperations>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:MultipleAssign>
+                            <Throw DisplayName="Throw Business Exception" Exception="[New BusinessRuleException(&quot;Download failed as a pop up needs to be filled&quot;)]" sap:VirtualizedContainerService.HintSize="479,113" sap2010:WorkflowViewState.IdRef="Throw_13">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </Throw>
+                          </Sequence>
+                        </ui:IfElseIfBlock.Then>
+                      </ui:IfElseIfBlock>
+                    </sc:BindingList>
+                  </ui:IfElseIfV2.ElseIfs>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:IfElseIfV2.Then>
+                    <Sequence DisplayName="Then - Dely Download Progressing" sap:VirtualizedContainerService.HintSize="416,173" sap2010:WorkflowViewState.IdRef="Sequence_123">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Delay DisplayName="Delay 30s" Duration="00:00:30" sap:VirtualizedContainerService.HintSize="382,113" sap2010:WorkflowViewState.IdRef="Delay_7" />
+                    </Sequence>
+                  </ui:IfElseIfV2.Then>
+                </ui:IfElseIfV2>
+                <If sap2010:Annotation.AnnotationText="This validation will check if the file has been downloaded successfully and break out of the loop." Condition="[File.Exists(str_ExpectedFile)]" DisplayName="Validates if Download is complete" sap:VirtualizedContainerService.HintSize="547,741" sap2010:WorkflowViewState.IdRef="If_37">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -282,45 +373,17 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <If.Then>
-                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,174" sap2010:WorkflowViewState.IdRef="Sequence_85">
+                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="513,460" sap2010:WorkflowViewState.IdRef="Sequence_121">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Delay DisplayName="Delay 30s" Duration="00:00:30" sap:VirtualizedContainerService.HintSize="382,114" sap2010:WorkflowViewState.IdRef="Delay_3" />
-                    </Sequence>
-                  </If.Then>
-                  <If.Else>
-                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,90" sap2010:WorkflowViewState.IdRef="Sequence_86">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                    </Sequence>
-                  </If.Else>
-                </If>
-                <If sap2010:Annotation.AnnotationText="This validation will check if the file has been downloaded successfully and break out of the loop." Condition="[File.Exists(str_ExpectedFile)]" DisplayName="Validates if Download is complete" sap:VirtualizedContainerService.HintSize="547,759" sap2010:WorkflowViewState.IdRef="If_29">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <If.Then>
-                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="513,463" sap2010:WorkflowViewState.IdRef="Sequence_87">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,175" sap2010:WorkflowViewState.IdRef="LogMessage_18" Message="[&quot;File downloaded successfully: &quot; + str_ExpectedFile]" />
-                      <ui:MultipleAssign DisplayName="Assign - bool_FileDownloaded &amp; Transaction Date Created" sap:VirtualizedContainerService.HintSize="479,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_19">
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_20" Message="[&quot;File downloaded successfully: &quot; + str_ExpectedFile]" />
+                      <ui:MultipleAssign DisplayName="Assign - bool_FileDownloaded &amp; Transaction Date Created" sap:VirtualizedContainerService.HintSize="479,179" sap2010:WorkflowViewState.IdRef="MultipleAssign_25">
                         <ui:MultipleAssign.AssignOperations>
                           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_48">
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_62">
                               <ui:AssignOperation.To>
                                 <OutArgument x:TypeArguments="x:Boolean">[bool_FileDownloaded]</OutArgument>
                               </ui:AssignOperation.To>
@@ -328,7 +391,7 @@
                                 <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                               </ui:AssignOperation.Value>
                             </ui:AssignOperation>
-                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_49">
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_63">
                               <ui:AssignOperation.To>
                                 <OutArgument x:TypeArguments="x:Object">[io_dr_CurrentRow("Date Created/Downloaded")]</OutArgument>
                               </ui:AssignOperation.To>
@@ -339,11 +402,11 @@
                           </scg:List>
                         </ui:MultipleAssign.AssignOperations>
                       </ui:MultipleAssign>
-                      <ui:Break sap:VirtualizedContainerService.HintSize="479,48" sap2010:WorkflowViewState.IdRef="Break_4" />
+                      <ui:Break sap:VirtualizedContainerService.HintSize="479,48" sap2010:WorkflowViewState.IdRef="Break_6" />
                     </Sequence>
                   </If.Then>
                   <If.Else>
-                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,90" sap2010:WorkflowViewState.IdRef="Sequence_88">
+                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_122">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -354,6 +417,13 @@
                 </If>
               </Sequence>
             </ui:InterruptibleWhile.Body>
+            <ui:InterruptibleWhile.Condition>
+              <Literal x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="Literal`1_1" Value="True">
+                <Literal.Result>
+                  <OutArgument x:TypeArguments="x:Boolean" />
+                </Literal.Result>
+              </Literal>
+            </ui:InterruptibleWhile.Condition>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -370,7 +440,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:KillProcess>
-          <If sap2010:Annotation.AnnotationText="This validation will check if the file is downloaded then move on to Extract/Unzip the zip file" Condition="[bool_FileDownloaded]" DisplayName="Validate Donwloaded File" sap:VirtualizedContainerService.HintSize="615,765" sap2010:WorkflowViewState.IdRef="If_26">
+          <If sap2010:Annotation.AnnotationText="This validation will check if the file is downloaded then move on to Extract/Unzip the zip file" Condition="[bool_FileDownloaded]" DisplayName="Validate Donwloaded File" sap:VirtualizedContainerService.HintSize="615,817" sap2010:WorkflowViewState.IdRef="If_26">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -379,7 +449,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="513,473" sap2010:WorkflowViewState.IdRef="Sequence_81">
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,516" sap2010:WorkflowViewState.IdRef="Sequence_81">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="str_ExtractedContentsFolder" />
                 </Sequence.Variables>
@@ -388,33 +458,20 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:MultipleAssign DisplayName="Assign - str_ExtractionFolder &amp; str_ExtractedContentsFolder" sap:VirtualizedContainerService.HintSize="479,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_20">
-                  <ui:MultipleAssign.AssignOperations>
-                    <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
-                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_50">
-                        <ui:AssignOperation.To>
-                          <OutArgument x:TypeArguments="x:String">[str_ExtractionFolder]</OutArgument>
-                        </ui:AssignOperation.To>
-                        <ui:AssignOperation.Value>
-                          <InArgument x:TypeArguments="x:String">[in_str_DownloadFolderPath + "\TemporaryExtract"]</InArgument>
-                        </ui:AssignOperation.Value>
-                      </ui:AssignOperation>
-                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_51">
-                        <ui:AssignOperation.To>
-                          <OutArgument x:TypeArguments="x:String">[str_ExtractedContentsFolder]</OutArgument>
-                        </ui:AssignOperation.To>
-                        <ui:AssignOperation.Value>
-                          <InArgument x:TypeArguments="x:String">[str_ExtractionFolder + "\" + in_str_BidFolderName]</InArgument>
-                        </ui:AssignOperation.Value>
-                      </ui:AssignOperation>
-                    </scg:List>
-                  </ui:MultipleAssign.AssignOperations>
-                </ui:MultipleAssign>
-                <uascw:ExtractFiles Content="{x:Null}" DestinationFolderInfo="{x:Null}" File="{x:Null}" Password="{x:Null}" CodePage="Default" ConflictResolution="Replace" DestinationFolder="[str_ExtractionFolder]" DisplayName="Extract/Unzip Downloaded Zip File" ExtractToADedicatedFolder="True" FileToExtract="[str_ExpectedFile]" sap:VirtualizedContainerService.HintSize="479,233" sap2010:WorkflowViewState.IdRef="ExtractFiles_4" SkipUnsupportedFiles="False" />
+                <Assign DisplayName="Assign - str_ExtractedContentsFolder" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_34">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[str_ExtractedContentsFolder]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[str_ExtractionFolder + "\" + in_str_BidFolderName]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <uascw:ExtractFiles Content="{x:Null}" DestinationFolderInfo="{x:Null}" File="{x:Null}" Password="{x:Null}" CodePage="Default" ConflictResolution="Replace" DestinationFolder="[str_ExtractionFolder]" DisplayName="Extract/Unzip Downloaded Zip File" ExtractToADedicatedFolder="True" FileToExtract="[str_ExpectedFile]" sap:VirtualizedContainerService.HintSize="434,239" sap2010:WorkflowViewState.IdRef="ExtractFiles_4" SkipUnsupportedFiles="False" />
+                <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="434,103" sap2010:WorkflowViewState.IdRef="DeleteFileX_7" Path="[str_ExpectedFile]" />
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,90" sap2010:WorkflowViewState.IdRef="Sequence_90">
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_90">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -423,7 +480,7 @@
               </Sequence>
             </If.Else>
           </If>
-          <ui:ForEachFolderX sap2010:Annotation.AnnotationText="Checking for folders inside the Temp Extraction Folder" DisplayName="For Each Folder in Folder" Folder="[str_ExtractionFolder]" sap:VirtualizedContainerService.HintSize="615,101" sap2010:WorkflowViewState.IdRef="ForEachFolderX_12" IncludeSubFolders="False" OrderBy="NameAscFirst" SkipFoldersWithoutPermission="False">
+          <ui:ForEachFolderX sap2010:Annotation.AnnotationText="Checking for folders inside the Temp Extraction Folder" DisplayName="For Each Folder in Folder" Folder="[str_ExtractionFolder]" sap:VirtualizedContainerService.HintSize="615,99" sap2010:WorkflowViewState.IdRef="ForEachFolderX_12" IncludeSubFolders="False" OrderBy="NameAscFirst" SkipFoldersWithoutPermission="False">
             <ui:ForEachFolderX.Body>
               <ActivityAction x:TypeArguments="si:DirectoryInfo, x:Int32">
                 <ActivityAction.Argument1>
@@ -457,7 +514,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:ForEachFolderX>
-          <Assign sap2010:Annotation.AnnotationText="str_SubFolders - Holds the list of folders inside the default extracted folder" DisplayName="Assign - str_SubFolders" sap:VirtualizedContainerService.HintSize="615,159" sap2010:WorkflowViewState.IdRef="Assign_24">
+          <Assign sap2010:Annotation.AnnotationText="str_SubFolders - Holds the list of folders inside the default extracted folder" DisplayName="Assign - str_SubFolders" sap:VirtualizedContainerService.HintSize="615,114" sap2010:WorkflowViewState.IdRef="Assign_24">
             <Assign.To>
               <OutArgument x:TypeArguments="s:String[]">[str_SubFolders]</OutArgument>
             </Assign.To>
@@ -467,12 +524,12 @@
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </Assign>
-          <If sap2010:Annotation.AnnotationText="In this validation, the extracted folder will be renamed and moved to another folder destination" Condition="[str_SubFolders.Length &gt; 1]" DisplayName="Validates Number of Sub Folders" sap:VirtualizedContainerService.HintSize="615,2322" sap2010:WorkflowViewState.IdRef="If_25">
+          <If sap2010:Annotation.AnnotationText="In this validation, the extracted folder will be renamed and moved to another folder destination" Condition="[str_SubFolders.Length &gt; 1]" DisplayName="Validates Number of Sub Folders" sap:VirtualizedContainerService.HintSize="615,1784" sap2010:WorkflowViewState.IdRef="If_25">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -481,14 +538,14 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="581,1317" sap2010:WorkflowViewState.IdRef="Sequence_94">
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_94">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:ForEachFolderX DisplayName="For Each Folder in Extraction Folder (Rename)" Folder="[str_ExtractionFolder]" sap:VirtualizedContainerService.HintSize="547,514" sap2010:WorkflowViewState.IdRef="ForEachFolderX_13" IncludeSubFolders="False" OrderBy="NameAscFirst" SkipFoldersWithoutPermission="False">
+                <ui:ForEachFolderX DisplayName="For Each Folder in Extraction Folder (Rename)" Folder="[str_ExtractionFolder]" sap:VirtualizedContainerService.HintSize="547,507" sap2010:WorkflowViewState.IdRef="ForEachFolderX_13" IncludeSubFolders="False" OrderBy="NameAscFirst" SkipFoldersWithoutPermission="False">
                   <ui:ForEachFolderX.Body>
                     <ActivityAction x:TypeArguments="si:DirectoryInfo, x:Int32">
                       <ActivityAction.Argument1>
@@ -497,13 +554,13 @@
                       <ActivityAction.Argument2>
                         <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
                       </ActivityAction.Argument2>
-                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,217" sap2010:WorkflowViewState.IdRef="Sequence_92">
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,215" sap2010:WorkflowViewState.IdRef="Sequence_92">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:RenameFolderX DisplayName="Rename Folder" FolderPath="[CurrentFolder.ToString]" sap:VirtualizedContainerService.HintSize="382,157" sap2010:WorkflowViewState.IdRef="RenameFolderX_3" NewName="[in_str_BidFolderName]" />
+                        <ui:RenameFolderX DisplayName="Rename Folder" FolderPath="[CurrentFolder.ToString]" sap:VirtualizedContainerService.HintSize="382,155" sap2010:WorkflowViewState.IdRef="RenameFolderX_3" NewName="[in_str_BidFolderName]" />
                       </Sequence>
                     </ActivityAction>
                   </ui:ForEachFolderX.Body>
@@ -514,7 +571,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:ForEachFolderX>
-                <ui:ForEachFolderX DisplayName="For Each Folder in Extraction Folder (Move)" Folder="[str_ExtractionFolder]" sap:VirtualizedContainerService.HintSize="547,743" sap2010:WorkflowViewState.IdRef="ForEachFolderX_14" IncludeSubFolders="False" OrderBy="NameAscFirst" SkipFoldersWithoutPermission="False">
+                <ui:ForEachFolderX DisplayName="For Each Folder in Extraction Folder (Move)" Folder="[str_ExtractionFolder]" sap:VirtualizedContainerService.HintSize="547,735" sap2010:WorkflowViewState.IdRef="ForEachFolderX_14" IncludeSubFolders="False" OrderBy="NameAscFirst" SkipFoldersWithoutPermission="False">
                   <ui:ForEachFolderX.Body>
                     <ActivityAction x:TypeArguments="si:DirectoryInfo, x:Int32">
                       <ActivityAction.Argument1>
@@ -523,14 +580,14 @@
                       <ActivityAction.Argument2>
                         <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
                       </ActivityAction.Argument2>
-                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="513,455" sap2010:WorkflowViewState.IdRef="Sequence_93">
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="513,452" sap2010:WorkflowViewState.IdRef="Sequence_93">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:MoveFolderX DisplayName="Move Folder" From="[CurrentFolder.ToString]" sap:VirtualizedContainerService.HintSize="479,193" sap2010:WorkflowViewState.IdRef="MoveFolderX_5" Overwrite="True" To="[in_str_DestinationFolderPath]" />
-                        <ui:MultipleAssign DisplayName="Assign - Backed Up Folder Location &amp; Boolean flag" sap:VirtualizedContainerService.HintSize="479,202" sap2010:WorkflowViewState.IdRef="MultipleAssign_21">
+                        <ui:MoveFolderX DisplayName="Move Folder" From="[CurrentFolder.ToString]" sap:VirtualizedContainerService.HintSize="479,191" sap2010:WorkflowViewState.IdRef="MoveFolderX_5" Overwrite="True" To="[in_str_DestinationFolderPath]" />
+                        <ui:MultipleAssign DisplayName="Assign - Backed Up Folder Location &amp; Boolean flag" sap:VirtualizedContainerService.HintSize="479,201" sap2010:WorkflowViewState.IdRef="MultipleAssign_21">
                           <ui:MultipleAssign.AssignOperations>
                             <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_52">
@@ -573,13 +630,13 @@
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="581,803" sap2010:WorkflowViewState.IdRef="Sequence_96">
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="581,1558" sap2010:WorkflowViewState.IdRef="Sequence_96">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:ForEachFolderX DisplayName="For Each Folder in Extraction Folder (Move)" Folder="[str_FoldersPresent]" sap:VirtualizedContainerService.HintSize="547,743" sap2010:WorkflowViewState.IdRef="ForEachFolderX_15" IncludeSubFolders="False" OrderBy="NameAscFirst" SkipFoldersWithoutPermission="False">
+                <ui:ForEachFolderX DisplayName="For Each Folder in Extraction Folder (Rename)" Folder="[str_ExtractionFolder]" sap:VirtualizedContainerService.HintSize="547,794" sap2010:WorkflowViewState.IdRef="ForEachFolderX_17" IncludeSubFolders="False" OrderBy="NameAscFirst" SkipFoldersWithoutPermission="False">
                   <ui:ForEachFolderX.Body>
                     <ActivityAction x:TypeArguments="si:DirectoryInfo, x:Int32">
                       <ActivityAction.Argument1>
@@ -588,24 +645,51 @@
                       <ActivityAction.Argument2>
                         <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
                       </ActivityAction.Argument2>
-                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="513,455" sap2010:WorkflowViewState.IdRef="Sequence_95">
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468,502" sap2010:WorkflowViewState.IdRef="Sequence_126">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:MoveFolderX DisplayName="Move Folder" From="[CurrentFolder.ToString]" sap:VirtualizedContainerService.HintSize="479,193" sap2010:WorkflowViewState.IdRef="MoveFolderX_6" Overwrite="True" To="[in_str_DestinationFolderPath]" />
-                        <ui:MultipleAssign DisplayName="Assign - Backed Up Folder Location &amp; Boolean flag" sap:VirtualizedContainerService.HintSize="479,202" sap2010:WorkflowViewState.IdRef="MultipleAssign_22">
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_21" Message="[in_str_BidFolderName + Environment.NewLine + str_FoldersPresent]" />
+                        <ui:RenameFolderX DisplayName="Rename Folder" FolderPath="[CurrentFolder.ToString]" sap:VirtualizedContainerService.HintSize="434,164" sap2010:WorkflowViewState.IdRef="RenameFolderX_4" NewName="[in_str_BidFolderName]" />
+                        <Assign DisplayName="Assign - str_FoldersPresent" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_35">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[str_FoldersPresent]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[str_ExtractionFolder]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:ForEachFolderX.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:ForEachFolderX>
+                <ui:ForEachFolderX DisplayName="For Each Folder in Extraction Folder (Move)" Folder="[str_FoldersPresent]" sap:VirtualizedContainerService.HintSize="547,704" sap2010:WorkflowViewState.IdRef="ForEachFolderX_15" IncludeSubFolders="False" OrderBy="NameAscFirst" SkipFoldersWithoutPermission="False">
+                  <ui:ForEachFolderX.Body>
+                    <ActivityAction x:TypeArguments="si:DirectoryInfo, x:Int32">
+                      <ActivityAction.Argument1>
+                        <DelegateInArgument x:TypeArguments="si:DirectoryInfo" Name="CurrentFolder" />
+                      </ActivityAction.Argument1>
+                      <ActivityAction.Argument2>
+                        <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
+                      </ActivityAction.Argument2>
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="513,421" sap2010:WorkflowViewState.IdRef="Sequence_95">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:MoveFolderX DisplayName="Move Folder" From="[CurrentFolder.ToString]" sap:VirtualizedContainerService.HintSize="479,191" sap2010:WorkflowViewState.IdRef="MoveFolderX_6" Overwrite="True" To="[in_str_DestinationFolderPath]" />
+                        <ui:MultipleAssign DisplayName="Assign - Backed Up Folder Location &amp; Boolean flag" sap:VirtualizedContainerService.HintSize="479,170" sap2010:WorkflowViewState.IdRef="MultipleAssign_22">
                           <ui:MultipleAssign.AssignOperations>
                             <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                              <ui:AssignOperation sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="AssignOperation_55">
-                                <ui:AssignOperation.To>
-                                  <OutArgument x:TypeArguments="x:String">[str_FolderName]</OutArgument>
-                                </ui:AssignOperation.To>
-                                <ui:AssignOperation.Value>
-                                  <InArgument x:TypeArguments="x:String">[CurrentFolder.ToString.Substring(CurrentFolder.ToString.LastIndexOf("DL\") + 3).Trim()]</InArgument>
-                                </ui:AssignOperation.Value>
-                              </ui:AssignOperation>
                               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_56">
                                 <ui:AssignOperation.To>
                                   <OutArgument x:TypeArguments="x:Object">[io_dr_CurrentRow("Backed Up")]</OutArgument>
@@ -619,7 +703,7 @@
                                   <OutArgument x:TypeArguments="x:Object">[io_dr_CurrentRow("Backed Up File Location")]</OutArgument>
                                 </ui:AssignOperation.To>
                                 <ui:AssignOperation.Value>
-                                  <InArgument x:TypeArguments="x:Object">[in_str_DestinationFolderPath + "\" + str_FolderName]</InArgument>
+                                  <InArgument x:TypeArguments="x:Object">[in_str_DestinationFolderPath + "\" + in_str_BidFolderName]</InArgument>
                                 </ui:AssignOperation.Value>
                               </ui:AssignOperation>
                             </scg:List>
@@ -638,42 +722,7 @@
               </Sequence>
             </If.Else>
           </If>
-          <ui:ForEachFileX sap2010:Annotation.AnnotationText="Delete the zip file" DisplayName="For Each File in Download Folder" Filter="*.zip" Folder="[in_str_DownloadFolderPath]" sap:VirtualizedContainerService.HintSize="615,491" sap2010:WorkflowViewState.IdRef="ForEachFileX_10" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
-            <ui:ForEachFileX.Body>
-              <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
-                <ActivityAction.Argument1>
-                  <DelegateInArgument x:TypeArguments="si:FileInfo" Name="CurrentFile" />
-                </ActivityAction.Argument1>
-                <ActivityAction.Argument2>
-                  <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
-                </ActivityAction.Argument2>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,164" sap2010:WorkflowViewState.IdRef="Sequence_97">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="382,104" sap2010:WorkflowViewState.IdRef="DeleteFileX_3" Path="[CurrentFile.ToString]" />
-                </Sequence>
-              </ActivityAction>
-            </ui:ForEachFileX.Body>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:ForEachFileX>
-          <ui:DeleteFolderX DisplayName="Delete Temp Extraction Folder" sap:VirtualizedContainerService.HintSize="615,57" sap2010:WorkflowViewState.IdRef="DeleteFolderX_5" Path="[str_ExtractionFolder]" Recursive="True">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:DeleteFolderX>
-          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="615,457" sap2010:WorkflowViewState.IdRef="TryCatch_5">
+          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="615,449" sap2010:WorkflowViewState.IdRef="TryCatch_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -681,7 +730,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <TryCatch.Try>
-              <ui:MultipleAssign sap2010:Annotation.AnnotationText="str_BidsBasePath - Holds the Bid file location&#xA;str_PlansFolderPath - Holds the Plans file location" DisplayName="Assign - str_BidsBasePath &amp; str_PlansFolderPath" sap:VirtualizedContainerService.HintSize="479,192" sap2010:WorkflowViewState.IdRef="MultipleAssign_23">
+              <ui:MultipleAssign sap2010:Annotation.AnnotationText="str_BidsBasePath - Holds the Bid file location&#xA;str_PlansFolderPath - Holds the Plans file location" DisplayName="Assign - str_BidsBasePath &amp; str_PlansFolderPath" sap:VirtualizedContainerService.HintSize="479,189" sap2010:WorkflowViewState.IdRef="MultipleAssign_23">
                 <ui:MultipleAssign.AssignOperations>
                   <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_58">
@@ -710,7 +759,7 @@
               </ui:MultipleAssign>
             </TryCatch.Try>
             <TryCatch.Catches>
-              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="483,23" sap2010:WorkflowViewState.IdRef="Catch`1_7">
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="483,22" sap2010:WorkflowViewState.IdRef="Catch`1_7">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -721,7 +770,7 @@
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="System Exception" sap:VirtualizedContainerService.HintSize="604,1372" sap2010:WorkflowViewState.IdRef="Sequence_82">
+                  <Sequence DisplayName="System Exception" sap:VirtualizedContainerService.HintSize="604,1357" sap2010:WorkflowViewState.IdRef="Sequence_82">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:Int32" Default="0" Name="int_PDFFileCount" />
                     </Sequence.Variables>
@@ -730,7 +779,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:ForEachFileX DisplayName="For Each File in Folder" Filter="*.pdf" Folder="[io_dr_CurrentRow(&quot;Backed Up File Location&quot;).ToString]" sap:VirtualizedContainerService.HintSize="570,462" sap2010:WorkflowViewState.IdRef="ForEachFileX_11" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+                    <ui:ForEachFileX DisplayName="For Each File in Folder" Filter="*.pdf" Folder="[io_dr_CurrentRow(&quot;Backed Up File Location&quot;).ToString]" sap:VirtualizedContainerService.HintSize="570,455" sap2010:WorkflowViewState.IdRef="ForEachFileX_11" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
                       <ui:ForEachFileX.Body>
                         <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
                           <ActivityAction.Argument1>
@@ -739,13 +788,13 @@
                           <ActivityAction.Argument2>
                             <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
                           </ActivityAction.Argument2>
-                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468,166" sap2010:WorkflowViewState.IdRef="Sequence_98">
+                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_98">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Assign DisplayName="Increment int_PDFFileCount" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Assign_25">
+                            <Assign DisplayName="Increment int_PDFFileCount" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_25">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:Int32">[int_PDFFileCount]</OutArgument>
                               </Assign.To>
@@ -763,7 +812,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:ForEachFileX>
-                    <If Condition="[int_PDFFileCount = 1]" sap:VirtualizedContainerService.HintSize="570,850" sap2010:WorkflowViewState.IdRef="If_30">
+                    <If Condition="[int_PDFFileCount = 1]" sap:VirtualizedContainerService.HintSize="570,842" sap2010:WorkflowViewState.IdRef="If_30">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -771,14 +820,14 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="536,514" sap2010:WorkflowViewState.IdRef="Sequence_100">
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="536,508" sap2010:WorkflowViewState.IdRef="Sequence_100">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:ForEachFileX DisplayName="For Each File in Folder" Filter="*.pdf" Folder="[io_dr_CurrentRow(&quot;Backed Up File Location&quot;).ToString]" sap:VirtualizedContainerService.HintSize="502,454" sap2010:WorkflowViewState.IdRef="ForEachFileX_12" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+                          <ui:ForEachFileX DisplayName="For Each File in Folder" Filter="*.pdf" Folder="[io_dr_CurrentRow(&quot;Backed Up File Location&quot;).ToString]" sap:VirtualizedContainerService.HintSize="502,448" sap2010:WorkflowViewState.IdRef="ForEachFileX_12" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
                             <ui:ForEachFileX.Body>
                               <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
                                 <ActivityAction.Argument1>
@@ -787,13 +836,13 @@
                                 <ActivityAction.Argument2>
                                   <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
                                 </ActivityAction.Argument2>
-                                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468,166" sap2010:WorkflowViewState.IdRef="Sequence_99">
+                                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_99">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <Assign DisplayName="Assign - out_str_PlansPDFFilePath" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Assign_26">
+                                  <Assign DisplayName="Assign - out_str_PlansPDFFilePath" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_26">
                                     <Assign.To>
                                       <OutArgument x:TypeArguments="x:String">[out_str_PlansPDFFilePath]</OutArgument>
                                     </Assign.To>
@@ -814,13 +863,13 @@
                         </Sequence>
                       </If.Then>
                       <If.Else>
-                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,174" sap2010:WorkflowViewState.IdRef="Sequence_101">
+                        <Sequence DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="416,173" sap2010:WorkflowViewState.IdRef="Sequence_101">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Throw DisplayName="Throw System Exception" Exception="[new BusinessRuleException(&quot;Plans Folder on this bid is not located. Bids name : &quot; + in_str_BidFolderName)]" sap:VirtualizedContainerService.HintSize="382,114" sap2010:WorkflowViewState.IdRef="Throw_11" />
+                          <Throw DisplayName="Throw Business Exception" Exception="[New BusinessRuleException(&quot;Bid Name : &quot; + in_str_BidFolderName + &quot;Has multiple PDF Files on the Plans folder page, This will require manual upload to Fast Pipe&quot;)]" sap:VirtualizedContainerService.HintSize="382,113" sap2010:WorkflowViewState.IdRef="Throw_11" />
                         </Sequence>
                       </If.Else>
                     </If>
@@ -829,9 +878,16 @@
               </Catch>
             </TryCatch.Catches>
           </TryCatch>
-          <If Condition="[str_PlansFolderPath.Length = 1]" sap:VirtualizedContainerService.HintSize="615,546" sap2010:WorkflowViewState.IdRef="If_31">
+          <If Condition="[str_PlansFolderPath.Length = 1]" sap:VirtualizedContainerService.HintSize="615,466" sap2010:WorkflowViewState.IdRef="If_31">
             <If.Then>
               <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,165" sap2010:WorkflowViewState.IdRef="Sequence_107">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="x:Int32" Name="int_PlansPDFFileCount">
+                    <Variable.Default>
+                      <Literal x:TypeArguments="x:Int32" />
+                    </Variable.Default>
+                  </Variable>
+                </Sequence.Variables>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -845,7 +901,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <If.Then>
-                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,90" sap2010:WorkflowViewState.IdRef="Sequence_102">
+                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_102">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -854,13 +910,13 @@
                     </Sequence>
                   </If.Then>
                   <If.Else>
-                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="536,545" sap2010:WorkflowViewState.IdRef="Sequence_104">
+                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,165" sap2010:WorkflowViewState.IdRef="Sequence_104">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:ForEachFileX DisplayName="For Each File in Folder" Filter="*.pdf" Folder="[str_PlansFolderPath(0)]" sap:VirtualizedContainerService.HintSize="502,485" sap2010:WorkflowViewState.IdRef="ForEachFileX_13" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+                      <ui:ForEachFileX DisplayName="For Each File in Folder" Filter="*.pdf" Folder="[str_PlansFolderPath(0)]" sap:VirtualizedContainerService.HintSize="382,57" sap2010:WorkflowViewState.IdRef="ForEachFileX_13" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
                         <ui:ForEachFileX.Body>
                           <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
                             <ActivityAction.Argument1>
@@ -869,18 +925,18 @@
                             <ActivityAction.Argument2>
                               <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
                             </ActivityAction.Argument2>
-                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468,197" sap2010:WorkflowViewState.IdRef="Sequence_103">
+                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468,164" sap2010:WorkflowViewState.IdRef="Sequence_103">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Assign sap2010:Annotation.AnnotationText="out_str_PlansPDFFilePath - Holds the Plans PDF file path" DisplayName="Assign - out_str_PlansPDFFilePath" sap:VirtualizedContainerService.HintSize="434,137" sap2010:WorkflowViewState.IdRef="Assign_27">
+                              <Assign sap2010:Annotation.AnnotationText="" DisplayName="Assign - int_PlansPDFFileCount" sap:VirtualizedContainerService.HintSize="434,136" sap2010:WorkflowViewState.IdRef="Assign_27">
                                 <Assign.To>
-                                  <OutArgument x:TypeArguments="x:String">[out_str_PlansPDFFilePath]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:Int32">[int_PlansPDFFileCount]</OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
-                                  <InArgument x:TypeArguments="x:String">[CurrentFile.ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:Int32">[int_PlansPDFFileCount + 1]</InArgument>
                                 </Assign.Value>
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -893,11 +949,72 @@
                         </ui:ForEachFileX.Body>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:ForEachFileX>
+                      <If Condition="[int_PlansPDFFileCount = 1]" sap:VirtualizedContainerService.HintSize="450,188" sap2010:WorkflowViewState.IdRef="If_38">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If.Then>
+                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="536,537" sap2010:WorkflowViewState.IdRef="Sequence_129">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:ForEachFileX DisplayName="For Each File in Folder" Filter="*.pdf" Folder="[str_PlansFolderPath(0)]" sap:VirtualizedContainerService.HintSize="502,477" sap2010:WorkflowViewState.IdRef="ForEachFileX_14" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+                              <ui:ForEachFileX.Body>
+                                <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
+                                  <ActivityAction.Argument1>
+                                    <DelegateInArgument x:TypeArguments="si:FileInfo" Name="CurrentFile" />
+                                  </ActivityAction.Argument1>
+                                  <ActivityAction.Argument2>
+                                    <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
+                                  </ActivityAction.Argument2>
+                                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468,196" sap2010:WorkflowViewState.IdRef="Sequence_131">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Assign sap2010:Annotation.AnnotationText="out_str_PlansPDFFilePath - Holds the Plans PDF file path" DisplayName="Assign - out_str_PlansPDFFilePath" sap:VirtualizedContainerService.HintSize="434,136" sap2010:WorkflowViewState.IdRef="Assign_32">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[out_str_PlansPDFFilePath]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">[CurrentFile.ToString]</InArgument>
+                                      </Assign.Value>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </Assign>
+                                  </Sequence>
+                                </ActivityAction>
+                              </ui:ForEachFileX.Body>
+                            </ui:ForEachFileX>
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_130">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Throw DisplayName="Throw Business Exception" Exception="[New BusinessRuleException(&quot;Bid Name : &quot; + in_str_BidFolderName + &quot;Has multiple PDF Files on the Plans folder page, This will require manual upload to Fast Pipe&quot;)]" sap:VirtualizedContainerService.HintSize="382,113" sap2010:WorkflowViewState.IdRef="Throw_14" />
+                          </Sequence>
+                        </If.Else>
+                      </If>
                     </Sequence>
                   </If.Else>
                 </If>
@@ -909,21 +1026,23 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <If.Then>
-                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,349" sap2010:WorkflowViewState.IdRef="Sequence_105">
+                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_105">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,175" sap2010:WorkflowViewState.IdRef="LogMessage_17" Message="[&quot;PDF File has not been located&quot;]" />
-                      <Throw DisplayName="Throw System Exception" Exception="[new BusinessRuleException(&quot;PDF File has not been located. Bids name : &quot; + in_str_BidFolderName)]" sap:VirtualizedContainerService.HintSize="382,114" sap2010:WorkflowViewState.IdRef="Throw_9" />
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,173" sap2010:WorkflowViewState.IdRef="LogMessage_17" Message="[&quot;PDF File has not been located&quot;]" />
+                      <Throw DisplayName="Throw Business Exception" Exception="[new BusinessRuleException(&quot;Bid Name :&quot; + in_str_BidFolderName + &quot; Plans PDF File can't be located, manual upload to FastPipe is encouraged&quot;)]" sap:VirtualizedContainerService.HintSize="382,113" sap2010:WorkflowViewState.IdRef="Throw_9" />
                     </Sequence>
                   </If.Then>
                   <If.Else>
-                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,90" sap2010:WorkflowViewState.IdRef="Sequence_106">
+                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_106">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </Sequence>
@@ -932,29 +1051,21 @@
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence sap2010:Annotation.AnnotationText="If there is more than one Plans folder this will then require manually uploading the Bid onto Fast Pipe" DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,210" sap2010:WorkflowViewState.IdRef="Sequence_108">
+              <Sequence sap2010:Annotation.AnnotationText="If there is more than one Plans folder this will then require manually uploading the Bid onto Fast Pipe" DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,131" sap2010:WorkflowViewState.IdRef="Sequence_108">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign DisplayName="Negate Loaded onto Fast Pipe" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Assign_28">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="x:Object">[io_dr_CurrentRow("Loaded on FastPipe")]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="x:Object">[False]</InArgument>
-                  </Assign.Value>
-                </Assign>
               </Sequence>
             </If.Else>
           </If>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="615,166" sap2010:WorkflowViewState.IdRef="LogMessage_16" Message="[&quot;Completed Extracting and Moving Bid Folder&quot;]" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="615,164" sap2010:WorkflowViewState.IdRef="LogMessage_16" Message="[&quot;Completed Extracting and Moving Bid Folder&quot;]" />
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="653,23" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="653,22" sap2010:WorkflowViewState.IdRef="Catch`1_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -965,60 +1076,14 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence sap2010:Annotation.AnnotationText="Throw exception and delete bid folder" sap:VirtualizedContainerService.HintSize="513,319" sap2010:WorkflowViewState.IdRef="Sequence_38">
+            <Sequence sap2010:Annotation.AnnotationText="Throw exception and delete bid folder" DisplayName="Business Exception" sap:VirtualizedContainerService.HintSize="513,323" sap2010:WorkflowViewState.IdRef="Sequence_38">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:ForEachFolderX DisplayName="For Each Folder in Folder" Folder="[in_str_DestinationFolderPath]" sap:VirtualizedContainerService.HintSize="479,57" sap2010:WorkflowViewState.IdRef="ForEachFolderX_16" IncludeSubFolders="False" OrderBy="NameAscFirst" SkipFoldersWithoutPermission="False">
-                <ui:ForEachFolderX.Body>
-                  <ActivityAction x:TypeArguments="si:DirectoryInfo, x:Int32">
-                    <ActivityAction.Argument1>
-                      <DelegateInArgument x:TypeArguments="si:DirectoryInfo" Name="CurrentFolder" />
-                    </ActivityAction.Argument1>
-                    <ActivityAction.Argument2>
-                      <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
-                    </ActivityAction.Argument2>
-                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,266" sap2010:WorkflowViewState.IdRef="Sequence_45">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <If Condition="[CurrentFolder.ToString.ToLower.Contains(in_str_BidFolderName.ToLower)]" sap:VirtualizedContainerService.HintSize="382,206" sap2010:WorkflowViewState.IdRef="If_12">
-                        <If.Then>
-                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,163" sap2010:WorkflowViewState.IdRef="Sequence_43">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                            <ui:DeleteFolderX DisplayName="Delete Folder" sap:VirtualizedContainerService.HintSize="382,103" sap2010:WorkflowViewState.IdRef="DeleteFolderX_3" Path="[CurrentFolder.ToString]" Recursive="True" />
-                          </Sequence>
-                        </If.Then>
-                        <If.Else>
-                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_44">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </Sequence>
-                        </If.Else>
-                      </If>
-                    </Sequence>
-                  </ActivityAction>
-                </ui:ForEachFolderX.Body>
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-              </ui:ForEachFolderX>
-              <ui:MultipleAssign DisplayName="Assign - Error Message &amp; Boolean flag" sap:VirtualizedContainerService.HintSize="479,171" sap2010:WorkflowViewState.IdRef="MultipleAssign_10">
+              <ui:MultipleAssign DisplayName="Assign - Error Message &amp; Boolean flag" sap:VirtualizedContainerService.HintSize="479,232" sap2010:WorkflowViewState.IdRef="MultipleAssign_10">
                 <ui:MultipleAssign.AssignOperations>
                   <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_22">
@@ -1037,13 +1102,29 @@
                         <InArgument x:TypeArguments="x:Boolean">False</InArgument>
                       </ui:AssignOperation.Value>
                     </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_65">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:Object">[io_dr_CurrentRow("Message")]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:Object">[exception.Message]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_71">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:Object">[io_dr_CurrentRow("Loaded on FastPipe")]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:Object">[False]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
                   </scg:List>
                 </ui:MultipleAssign.AssignOperations>
               </ui:MultipleAssign>
             </Sequence>
           </ActivityAction>
         </Catch>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="653,23" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="653,22" sap2010:WorkflowViewState.IdRef="Catch`1_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1054,13 +1135,13 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence sap:VirtualizedContainerService.HintSize="552,1003" sap2010:WorkflowViewState.IdRef="Sequence_39">
+            <Sequence DisplayName="System Exception" sap:VirtualizedContainerService.HintSize="513,287" sap2010:WorkflowViewState.IdRef="Sequence_39">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:ForEachFolderX DisplayName="For Each Folder in Folder" Folder="[in_str_DestinationFolderPath]" sap:VirtualizedContainerService.HintSize="518,772" sap2010:WorkflowViewState.IdRef="ForEachFolderX_6" IncludeSubFolders="False" OrderBy="NameAscFirst" SkipFoldersWithoutPermission="False">
+              <ui:ForEachFolderX DisplayName="For Each Folder in Folder" Folder="[in_str_DestinationFolderPath]" sap:VirtualizedContainerService.HintSize="479,57" sap2010:WorkflowViewState.IdRef="ForEachFolderX_6" IncludeSubFolders="False" OrderBy="NameAscFirst" SkipFoldersWithoutPermission="False">
                 <ui:ForEachFolderX.Body>
                   <ActivityAction x:TypeArguments="si:DirectoryInfo, x:Int32">
                     <ActivityAction.Argument1>
@@ -1069,25 +1150,26 @@
                     <ActivityAction.Argument2>
                       <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
                     </ActivityAction.Argument2>
-                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="484,476" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                    <Sequence DisplayName="Delete Backed Up Bid Folder" sap:VirtualizedContainerService.HintSize="484,473" sap2010:WorkflowViewState.IdRef="Sequence_42">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <If Condition="[CurrentFolder.ToString.ToLower.Contains(in_str_BidFolderName.ToLower)]" sap:VirtualizedContainerService.HintSize="450,416" sap2010:WorkflowViewState.IdRef="If_11">
+                      <If Condition="[CurrentFolder.ToString.ToLower.Contains(in_str_BidFolderName.ToLower)]" sap:VirtualizedContainerService.HintSize="450,413" sap2010:WorkflowViewState.IdRef="If_11">
                         <If.Then>
-                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,164" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,163" sap2010:WorkflowViewState.IdRef="Sequence_40">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:DeleteFolderX DisplayName="Delete Folder" sap:VirtualizedContainerService.HintSize="382,104" sap2010:WorkflowViewState.IdRef="DeleteFolderX_2" Path="[CurrentFolder.ToString]" Recursive="True" />
+                            <ui:DeleteFolderX DisplayName="Delete Folder" sap:VirtualizedContainerService.HintSize="382,103" sap2010:WorkflowViewState.IdRef="DeleteFolderX_2" Path="[CurrentFolder.ToString]" Recursive="True" />
                           </Sequence>
                         </If.Then>
                         <If.Else>
-                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,90" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_41">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1101,12 +1183,12 @@
                 </ui:ForEachFolderX.Body>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:ForEachFolderX>
-              <ui:MultipleAssign DisplayName="Assign - Error Message &amp; Boolean flag" sap:VirtualizedContainerService.HintSize="518,171" sap2010:WorkflowViewState.IdRef="MultipleAssign_11">
+              <ui:MultipleAssign DisplayName="Assign - Error Message &amp; Boolean flag" sap:VirtualizedContainerService.HintSize="479,170" sap2010:WorkflowViewState.IdRef="MultipleAssign_11">
                 <ui:MultipleAssign.AssignOperations>
                   <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_25">
@@ -1127,11 +1209,111 @@
                     </ui:AssignOperation>
                   </scg:List>
                 </ui:MultipleAssign.AssignOperations>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
               </ui:MultipleAssign>
             </Sequence>
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>
+      <TryCatch.Finally>
+        <Sequence sap2010:Annotation.AnnotationText="Delete the zip file and extraction folder" DisplayName="Clean Up" sap:VirtualizedContainerService.HintSize="484,814" sap2010:WorkflowViewState.IdRef="Sequence_133">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:Boolean" Name="bool_ExtractionFolderExists" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:FolderExistsX DisplayName="Folder Exists" Exists="[bool_ExtractionFolderExists]" sap:VirtualizedContainerService.HintSize="450,165" sap2010:WorkflowViewState.IdRef="FolderExistsX_1" Path="[str_ExtractionFolder]" />
+          <If Condition="[bool_ExtractionFolderExists]" DisplayName="Validate if the Extraction is deleted already" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="If_39">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,163" sap2010:WorkflowViewState.IdRef="Sequence_134">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:DeleteFolderX DisplayName="Delete Temp Extraction Folder" sap:VirtualizedContainerService.HintSize="382,103" sap2010:WorkflowViewState.IdRef="DeleteFolderX_6" Path="[str_ExtractionFolder]" Recursive="True" />
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_135">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Sequence>
+            </If.Else>
+          </If>
+          <ui:ForEachFileX DisplayName="For Each File in Folder" Filter="*.zip" Folder="[in_str_DownloadFolderPath]" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="ForEachFileX_16" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+            <ui:ForEachFileX.Body>
+              <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
+                <ActivityAction.Argument1>
+                  <DelegateInArgument x:TypeArguments="si:FileInfo" Name="CurrentFile" />
+                </ActivityAction.Argument1>
+                <ActivityAction.Argument2>
+                  <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
+                </ActivityAction.Argument2>
+                <Sequence DisplayName="Delete Bid Zip Files" sap:VirtualizedContainerService.HintSize="416,163" sap2010:WorkflowViewState.IdRef="Sequence_136">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:DeleteFileX DisplayName="Delete Zip File" sap:VirtualizedContainerService.HintSize="382,103" sap2010:WorkflowViewState.IdRef="DeleteFileX_5" Path="[CurrentFile.ToString]" />
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEachFileX.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ForEachFileX>
+          <ui:ForEachFileX DisplayName="For Each File in Folder" Filter="*.cr*" Folder="[in_str_DownloadFolderPath]" sap:VirtualizedContainerService.HintSize="450,444" sap2010:WorkflowViewState.IdRef="ForEachFileX_17" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+            <ui:ForEachFileX.Body>
+              <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
+                <ActivityAction.Argument1>
+                  <DelegateInArgument x:TypeArguments="si:FileInfo" Name="CurrentFile" />
+                </ActivityAction.Argument1>
+                <ActivityAction.Argument2>
+                  <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
+                </ActivityAction.Argument2>
+                <Sequence DisplayName="Delete Bid Zip Files" sap:VirtualizedContainerService.HintSize="416,163" sap2010:WorkflowViewState.IdRef="Sequence_137">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:DeleteFileX DisplayName="Delete Zip File" sap:VirtualizedContainerService.HintSize="382,103" sap2010:WorkflowViewState.IdRef="DeleteFileX_6" Path="[CurrentFile.ToString]" />
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEachFileX.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ForEachFileX>
+        </Sequence>
+      </TryCatch.Finally>
     </TryCatch>
   </Sequence>
 </Activity>

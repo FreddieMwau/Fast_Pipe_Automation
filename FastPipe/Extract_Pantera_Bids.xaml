@@ -118,7 +118,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Extract_Pantera_Bids" sap:VirtualizedContainerService.HintSize="1530,2395" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Extract_Pantera_Bids" sap:VirtualizedContainerService.HintSize="1547,824.04" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="dt_PanteraBidsDT" />
       <Variable x:TypeArguments="scg:List(sd:DataRow)" Name="list_FilteredRows" />
@@ -128,7 +128,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="642,2372" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="456,735" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
         <Sequence DisplayName="Extract Table Bids" sap:VirtualizedContainerService.HintSize="604,2099" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
@@ -213,8 +213,8 @@
                         <ui:AssignOperation.Value>
                           <InArgument x:TypeArguments="scg:List(sd:DataRow)" xml:space="preserve">[(From row In dt_PanteraBidsDT.AsEnumerable()
                         Where Not String.IsNullOrEmpty(row("Bids Due").ToString()) AndAlso DateTime.TryParse(row("Bids Due").ToString(), Nothing) _
-                        AndAlso DateTime.Parse(row("Bids Due").ToString()) &gt;= DateTime.Now.AddDays(3) _
-                        AndAlso DateTime.Parse(row("Bids Due").ToString()) &lt;= DateTime.Now.AddDays(10) _
+                        AndAlso DateTime.Parse(row("Bids Due").ToString()) &gt;= DateTime.Now.AddDays(7) _
+                        AndAlso DateTime.Parse(row("Bids Due").ToString()) &lt;= DateTime.Now.AddDays(8) _
                         AndAlso str_StatesFilter.Contains(row("State").ToString())
                         Select row).ToList()]</InArgument>
                         </ui:AssignOperation.Value>
@@ -286,10 +286,10 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="608,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="422,528" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -297,10 +297,31 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <ui:LogMessage DisplayName="Log  System Exception Message" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[&quot;Error occured &quot; + exception.Message]" />
+            <Sequence DisplayName="System Exception" sap:VirtualizedContainerService.HintSize="416,458" sap2010:WorkflowViewState.IdRef="Sequence_25">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log  System Exception Message" sap:VirtualizedContainerService.HintSize="382,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[&quot;Error occured &quot; + exception.Message]" />
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Send System Exception" sap:VirtualizedContainerService.HintSize="382,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="FastPipe\Notifications.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_TransactionData">[Nothing]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_str_ReceipientEmailAddress">fredrick.mutua@griffinglobaltech.com</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_str_EmailSubject">An Exception Occured during Data Extractions</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_str_EmailBody" xml:space="preserve">["Hello Cate,  
+
+The Fast Pipe || Pantera Automation failed to completed its run! " + Environment.NewLine + exception.Message + Environment.NewLine + exception.Source +
+"Best regards,  
+Fast Pipe Automation Bot "]</InArgument>
+                  <InArgument x:TypeArguments="x:Boolean" x:Key="in_bool_AttachReport">False</InArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+              <Rethrow sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="Rethrow_2" />
+            </Sequence>
           </ActivityAction>
         </Catch>
-        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="608,22" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="422,22" sap2010:WorkflowViewState.IdRef="Catch`1_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -311,7 +332,15 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
             </ActivityAction.Argument>
-            <ui:LogMessage DisplayName="Log Business Exception Message" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Error" Message="[&quot;Error occured &quot; + exception.Message]" />
+            <Sequence DisplayName="Business Exception" sap:VirtualizedContainerService.HintSize="416,281" sap2010:WorkflowViewState.IdRef="Sequence_24">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Business Exception Message" sap:VirtualizedContainerService.HintSize="382,173" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Error" Message="[&quot;Error occured &quot; + exception.Message]" />
+              <Rethrow sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+            </Sequence>
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>

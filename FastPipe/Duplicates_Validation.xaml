@@ -107,13 +107,13 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Duplicates_Validation" sap:VirtualizedContainerService.HintSize="1244,1509" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Duplicates_Validation" sap:VirtualizedContainerService.HintSize="1547,824.04" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="574,1486" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="456,540" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
         <Sequence sap:VirtualizedContainerService.HintSize="536,1235" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
@@ -196,10 +196,10 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="540,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="422,355" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -207,6 +207,27 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
+            <Sequence DisplayName="System Exception" sap:VirtualizedContainerService.HintSize="416,285" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Send System Exception" sap:VirtualizedContainerService.HintSize="382,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="FastPipe\Notifications.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_TransactionData">[Nothing]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_str_ReceipientEmailAddress">fredrick.mutua@griffinglobaltech.com</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_str_EmailSubject">An Exception Occured during Data Extractions</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_str_EmailBody" xml:space="preserve">["Hello Cate,  
+
+The Fast Pipe || Pantera Automation failed to completed its run! " + Environment.NewLine + exception.Message + Environment.NewLine + exception.Source +
+"Best regards,  
+Fast Pipe Automation Bot "]</InArgument>
+                  <InArgument x:TypeArguments="x:Boolean" x:Key="in_bool_AttachReport">False</InArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+              <Rethrow sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+            </Sequence>
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>

@@ -108,15 +108,15 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="1244,1882" sap2010:WorkflowViewState.IdRef="Sequence_12">
+  <Sequence sap:VirtualizedContainerService.HintSize="1547,824.04" sap2010:WorkflowViewState.IdRef="Sequence_12">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="598,1859" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="456,536" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="Log In" sap:VirtualizedContainerService.HintSize="560,1608" sap2010:WorkflowViewState.IdRef="Sequence_10">
+        <Sequence DisplayName="Log In" sap:VirtualizedContainerService.HintSize="560,1688" sap2010:WorkflowViewState.IdRef="Sequence_10">
           <Sequence.Variables>
             <Variable x:TypeArguments="ss:SecureString" Name="str_PanteraPassword" />
             <Variable x:TypeArguments="x:String" Name="str_PanteraUsername" />
@@ -127,13 +127,13 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <p:GetSecureCredential CredentialType="Generic" DisplayName="Get Pantera Credentials" sap:VirtualizedContainerService.HintSize="526,112" sap2010:WorkflowViewState.IdRef="GetSecureCredential_1" Password="[str_PanteraPassword]" PersistanceType="Enterprise" Target="[in_str_PanteraCredentials]" Username="[str_PanteraUsername]" />
-          <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="Edge" DisplayName="Open Pantera Log In Page" sap:VirtualizedContainerService.HintSize="526,1436" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[out_ui_PanteraBrowser]" Url="[in_str_PanteraURL]">
+          <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="Edge" DisplayName="Open Pantera Log In Page" sap:VirtualizedContainerService.HintSize="526,1516" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[out_ui_PanteraBrowser]" Url="[in_str_PanteraURL]">
             <ui:OpenBrowser.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="492,1248" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="492,1328" sap2010:WorkflowViewState.IdRef="Sequence_11">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -141,7 +141,7 @@
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="458,57" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
                   <Delay DisplayName="Delay 5s" Duration="00:00:25" sap:VirtualizedContainerService.HintSize="458,122" sap2010:WorkflowViewState.IdRef="Delay_2" />
-                  <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="458,445" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:05">
+                  <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="458,525" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:10">
                     <ui:RetryScope.ActivityBody>
                       <ActivityAction>
                         <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="416,238" sap2010:WorkflowViewState.IdRef="Sequence_13">
@@ -212,10 +212,10 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="564,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="422,351" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -223,7 +223,15 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Error" Message="[&quot;Error occured &quot; + exception.Message]" />
+            <Sequence DisplayName="System Exception" sap:VirtualizedContainerService.HintSize="416,281" sap2010:WorkflowViewState.IdRef="Sequence_14">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,173" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Error" Message="[&quot;Error occured &quot; + exception.Message]" />
+              <Rethrow sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+            </Sequence>
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>
