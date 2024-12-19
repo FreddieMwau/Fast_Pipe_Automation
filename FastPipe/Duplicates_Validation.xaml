@@ -107,15 +107,15 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Duplicates_Validation" sap:VirtualizedContainerService.HintSize="1547,824.04" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Duplicates_Validation" sap:VirtualizedContainerService.HintSize="635.9999999999999,1706.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="456,540" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="538,1684" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="536,1235" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="536,1214" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="sd:DataTable" Name="dt_ExistingBids" />
             <Variable x:TypeArguments="sd:EnumerableRowCollection(sd:DataRow)" Name="enum_filteredRows" />
@@ -133,7 +133,7 @@
               </InArgument>
             </ui:ReadRange.Range>
           </ui:ReadRange>
-          <Assign sap2010:Annotation.AnnotationText="The LINQ Query will check for duplicates and remove them from dt_FilteredBids" DisplayName="Check and remove duplicate records" sap:VirtualizedContainerService.HintSize="502,157" sap2010:WorkflowViewState.IdRef="Assign_1">
+          <Assign sap2010:Annotation.AnnotationText="The LINQ Query will check for duplicates and remove them from dt_FilteredBids" DisplayName="Check and remove duplicate records" sap:VirtualizedContainerService.HintSize="502,163.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_1">
             <Assign.To>
               <OutArgument x:TypeArguments="sd:EnumerableRowCollection(sd:DataRow)">[enum_filteredRows]</OutArgument>
             </Assign.To>
@@ -148,7 +148,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </Assign>
-          <If Condition="[enum_filteredRows.Any()]" sap:VirtualizedContainerService.HintSize="502,622" sap2010:WorkflowViewState.IdRef="If_1">
+          <If Condition="[enum_filteredRows.Any()]" sap:VirtualizedContainerService.HintSize="502,594.6666666666666" sap2010:WorkflowViewState.IdRef="If_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -156,13 +156,13 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,168" sap2010:WorkflowViewState.IdRef="Sequence_3">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_2">
                   <Assign.To>
                     <OutArgument x:TypeArguments="sd:DataTable">[out_dt_FilteredBids]</OutArgument>
                   </Assign.To>
@@ -231,6 +231,9 @@ Fast Pipe Automation Bot "]</InArgument>
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>
+      <TryCatch.Finally>
+        <Sequence DisplayName="Finally" sap2010:WorkflowViewState.IdRef="Sequence_6" />
+      </TryCatch.Finally>
     </TryCatch>
   </Sequence>
 </Activity>
