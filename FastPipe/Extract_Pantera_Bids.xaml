@@ -118,7 +118,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Extract_Pantera_Bids" sap:VirtualizedContainerService.HintSize="635.9999999999999,3156.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Extract_Pantera_Bids" sap:VirtualizedContainerService.HintSize="655.9999999999999,3116.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="dt_PanteraBidsDT" />
       <Variable x:TypeArguments="scg:List(sd:DataRow)" Name="list_FilteredRows" />
@@ -128,9 +128,9 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="554,3134" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="554,3094" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="Extract Table Bids" sap:VirtualizedContainerService.HintSize="552,2093.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Extract Table Bids" sap:VirtualizedContainerService.HintSize="552,2053.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="s:String[]" Name="str_StatesFilter" />
           </Sequence.Variables>
@@ -147,14 +147,14 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:LogMessage>
-          <Delay DisplayName="Delay 45s" Duration="00:01:10" sap:VirtualizedContainerService.HintSize="518,124" sap2010:WorkflowViewState.IdRef="Delay_1" />
-          <Sequence DisplayName="Extracting Pantera Bids Table" sap:VirtualizedContainerService.HintSize="518,492" sap2010:WorkflowViewState.IdRef="Sequence_22">
+          <Delay DisplayName="Delay 45s" Duration="00:00:10" sap:VirtualizedContainerService.HintSize="518,124" sap2010:WorkflowViewState.IdRef="Delay_1" />
+          <Sequence DisplayName="Extracting Pantera Bids Table" sap:VirtualizedContainerService.HintSize="518,452" sap2010:WorkflowViewState.IdRef="Sequence_22">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Pantera Bids" sap:VirtualizedContainerService.HintSize="484,400" sap2010:WorkflowViewState.IdRef="BrowserScope_6" InformativeScreenshot="dc90c602bd56850125cdee925cd22796" Selector="&lt;html app='msedge.exe' title='Project Invites' /&gt;">
+            <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Pantera Bids" sap:VirtualizedContainerService.HintSize="484,360" sap2010:WorkflowViewState.IdRef="BrowserScope_6" InformativeScreenshot="dc90c602bd56850125cdee925cd22796" Selector="&lt;html app='msedge.exe' title='Project Invites' /&gt;">
               <ui:BrowserScope.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
@@ -203,7 +203,7 @@
                           <OutArgument x:TypeArguments="s:String[]">[str_StatesFilter]</OutArgument>
                         </ui:AssignOperation.To>
                         <ui:AssignOperation.Value>
-                          <InArgument x:TypeArguments="s:String[]">[{"FL","GA","NC","SC","TN","AL","OR"}]</InArgument>
+                          <InArgument x:TypeArguments="s:String[]">[{"FL","GA","NC","SC","TN","OR"}]</InArgument>
                         </ui:AssignOperation.Value>
                       </ui:AssignOperation>
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
