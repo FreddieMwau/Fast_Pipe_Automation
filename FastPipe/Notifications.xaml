@@ -127,7 +127,7 @@
       <AssemblyReference>UiPath.Testing</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Notifications" sap:VirtualizedContainerService.HintSize="635.9999999999999,2658.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Notifications" sap:VirtualizedContainerService.HintSize="655.9999999999999,2829.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_ExistingData" />
       <Variable x:TypeArguments="sd:EnumerableRowCollection(sd:DataRow)" Name="enum_MatchedResults" />
@@ -142,20 +142,20 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch sap2010:Annotation.AnnotationText="In this sequence the following will happen: &#xA;- Check if report needs to be attached to send the summary email&#xA;- If not most likely will be a System Exception Mail message sent" DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="556,2636" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch sap2010:Annotation.AnnotationText="In this sequence the following will happen: &#xA;- Check if report needs to be attached to send the summary email&#xA;- If not most likely will be a System Exception Mail message sent" DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="586.6666666666666,2806.6666666666665" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="554,2364" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="584.6666666666666,2464" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <If Condition="[in_bool_AttachReport]" DisplayName="Validate on Attaching Report" sap:VirtualizedContainerService.HintSize="520,2304" sap2010:WorkflowViewState.IdRef="If_6">
+          <If Condition="[in_bool_AttachReport]" DisplayName="Validate on Attaching Report" sap:VirtualizedContainerService.HintSize="550.6666666666666,2404" sap2010:WorkflowViewState.IdRef="If_6">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -163,13 +163,13 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence DisplayName="Send Report Summary Mail" sap:VirtualizedContainerService.HintSize="518,1669.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_14">
+              <Sequence DisplayName="Send Report Summary Mail" sap:VirtualizedContainerService.HintSize="548.6666666666666,1769.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_14">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:ReadRange WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dt_ExistingData]" DisplayName="Read all Sucessful Bids" sap:VirtualizedContainerService.HintSize="484,57.333333333333336" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="Successful" WorkbookPath="Data\Temp\TransactionStatus.xlsx">
+                <ui:ReadRange WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dt_ExistingData]" DisplayName="Read all Sucessful Bids" sap:VirtualizedContainerService.HintSize="514.6666666666666,120" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="Successful" WorkbookPath="Data\Temp\TransactionStatus.xlsx">
                   <ui:ReadRange.Range>
                     <InArgument x:TypeArguments="x:String">
                       <Literal x:TypeArguments="x:String" Value="" />
@@ -177,12 +177,12 @@
                   </ui:ReadRange.Range>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:ReadRange>
-                <ui:ReadRange WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dt_ExceptionsData]" DisplayName="Read all Sucessful with Exceptions" sap:VirtualizedContainerService.HintSize="484,57.333333333333336" sap2010:WorkflowViewState.IdRef="ReadRange_4" SheetName="Exceptions" WorkbookPath="Data\Temp\TransactionStatus.xlsx">
+                <ui:ReadRange WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dt_ExceptionsData]" DisplayName="Read all Sucessful with Exceptions" sap:VirtualizedContainerService.HintSize="514.6666666666666,120" sap2010:WorkflowViewState.IdRef="ReadRange_4" SheetName="Exceptions" WorkbookPath="Data\Temp\TransactionStatus.xlsx">
                   <ui:ReadRange.Range>
                     <InArgument x:TypeArguments="x:String">
                       <Literal x:TypeArguments="x:String" Value="" />
@@ -190,12 +190,12 @@
                   </ui:ReadRange.Range>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:ReadRange>
-                <ui:MultipleAssign DisplayName="Assign - Summary Variables" sap:VirtualizedContainerService.HintSize="484,241.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+                <ui:MultipleAssign DisplayName="Assign - Summary Variables" sap:VirtualizedContainerService.HintSize="514.6666666666666,241.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
                   <ui:MultipleAssign.AssignOperations>
                     <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
@@ -241,7 +241,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:MultipleAssign>
-                <If Condition="[enum_MatchedResults.Any()]" DisplayName="Validate Successful Bid Transactions" sap:VirtualizedContainerService.HintSize="484,57.333333333333336" sap2010:WorkflowViewState.IdRef="If_7">
+                <If Condition="[enum_MatchedResults.Any()]" DisplayName="Validate Successful Bid Transactions" sap:VirtualizedContainerService.HintSize="514.6666666666666,57.333333333333336" sap2010:WorkflowViewState.IdRef="If_7">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -249,13 +249,13 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <If.Then>
-                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,168" sap2010:WorkflowViewState.IdRef="Sequence_17">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Assign DisplayName="Assign - dt_SuccessfulBids" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_6">
+                      <Assign DisplayName="Assign - dt_SuccessfulBids" sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_6">
                         <Assign.To>
                           <OutArgument x:TypeArguments="sd:DataTable">[dt_SuccessfulBids]</OutArgument>
                         </Assign.To>
@@ -266,30 +266,31 @@
                     </Sequence>
                   </If.Then>
                   <If.Else>
-                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_18">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </Sequence>
                   </If.Else>
                 </If>
-                <If Condition="[dt_ExceptionsData.RowCount &gt; 0]" DisplayName="Validate Exceptions Data Isn't empty" sap:VirtualizedContainerService.HintSize="484,57.333333333333336" sap2010:WorkflowViewState.IdRef="If_8">
+                <If Condition="[dt_ExceptionsData.RowCount &gt; 0]" DisplayName="Validate Exceptions Data Isn't empty" sap:VirtualizedContainerService.HintSize="514.6666666666666,430.6666666666667" sap2010:WorkflowViewState.IdRef="If_8">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <If.Then>
-                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="513,199" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="512.6666666666666,200" sap2010:WorkflowViewState.IdRef="Sequence_19">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:MultipleAssign DisplayName="Assign - enum_FastPipeFilter" sap:VirtualizedContainerService.HintSize="479,139" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+                      <ui:MultipleAssign DisplayName="Assign - enum_FastPipeFilter" sap:VirtualizedContainerService.HintSize="478.6666666666667,140" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
                         <ui:MultipleAssign.AssignOperations>
                           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
@@ -309,7 +310,7 @@
                     </Sequence>
                   </If.Then>
                   <If.Else>
-                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="512.6666666666666,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_20">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -318,43 +319,9 @@
                     </Sequence>
                   </If.Else>
                 </If>
-                <If Condition="[enum_FastPipeFilter.Any()]" sap:VirtualizedContainerService.HintSize="484,398.6666666666667" sap2010:WorkflowViewState.IdRef="If_9">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <If.Then>
-                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,168" sap2010:WorkflowViewState.IdRef="Sequence_21">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <Assign sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_7">
-                        <Assign.To>
-                          <OutArgument x:TypeArguments="sd:DataTable">[dt_UploadFailed]</OutArgument>
-                        </Assign.To>
-                        <Assign.Value>
-                          <InArgument x:TypeArguments="sd:DataTable">[enum_FastPipeFilter.CopyToDataTable]</InArgument>
-                        </Assign.Value>
-                      </Assign>
-                    </Sequence>
-                  </If.Then>
-                  <If.Else>
-                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_22">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                    </Sequence>
-                  </If.Else>
-                </If>
-                <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="False" DataTable="[dt_SuccessfulBids]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="484,148" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Successful Bids" WorkbookPath="[str_FileName]" />
-                <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="False" DataTable="[dt_UploadFailed]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="484,148" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Manual Upload Bids" WorkbookPath="[str_FileName]" />
-                <umab:OutlookApplicationCard Account="catherine.mwai@thejitu.com" AccountMismatchBehavior="UseDefaultEmailAccount" DisplayName="Use Desktop Outlook App" sap:VirtualizedContainerService.HintSize="484,444" sap2010:WorkflowViewState.IdRef="OutlookApplicationCard_1">
+                <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="False" DataTable="[dt_SuccessfulBids]" DisplayName="Write Successful Bids" sap:VirtualizedContainerService.HintSize="514.6666666666666,148" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Successful Bids" WorkbookPath="[str_FileName]" />
+                <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="False" DataTable="[dt_ExceptionsData]" DisplayName="Write Unsuccessful Bids" sap:VirtualizedContainerService.HintSize="514.6666666666666,148" sap2010:WorkflowViewState.IdRef="WriteRange_3" SheetName="Exceptions" WorkbookPath="[str_FileName]" />
+                <umab:OutlookApplicationCard Account="catherine.mwai@thejitu.com" AccountMismatchBehavior="UseDefaultEmailAccount" DisplayName="Use Desktop Outlook App" sap:VirtualizedContainerService.HintSize="514.6666666666666,444" sap2010:WorkflowViewState.IdRef="OutlookApplicationCard_1">
                   <umab:OutlookApplicationCard.Body>
                     <ActivityAction x:TypeArguments="um:IMailQuickHandle">
                       <ActivityAction.Argument>
@@ -393,13 +360,13 @@
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence DisplayName="Send System Exception Email" sap:VirtualizedContainerService.HintSize="518,504" sap2010:WorkflowViewState.IdRef="Sequence_15">
+              <Sequence DisplayName="Send System Exception Email" sap:VirtualizedContainerService.HintSize="548.6666666666666,504" sap2010:WorkflowViewState.IdRef="Sequence_15">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <umab:OutlookApplicationCard Account="catherine.mwai@thejitu.com" AccountMismatchBehavior="UseDefaultEmailAccount" DisplayName="Use Desktop Outlook App" sap:VirtualizedContainerService.HintSize="484,444" sap2010:WorkflowViewState.IdRef="OutlookApplicationCard_2">
+                <umab:OutlookApplicationCard Account="catherine.mwai@thejitu.com" AccountMismatchBehavior="UseDefaultEmailAccount" DisplayName="Use Desktop Outlook App" sap:VirtualizedContainerService.HintSize="514.6666666666666,444" sap2010:WorkflowViewState.IdRef="OutlookApplicationCard_2">
                   <umab:OutlookApplicationCard.Body>
                     <ActivityAction x:TypeArguments="um:IMailQuickHandle">
                       <ActivityAction.Argument>
@@ -450,12 +417,18 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Rethrow sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+            <Rethrow sap:VirtualizedContainerService.HintSize="584.6666666666666,25.333333333333332" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>
       <TryCatch.Finally>
-        <Sequence DisplayName="Finally" sap2010:WorkflowViewState.IdRef="Sequence_23" />
+        <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="584.6666666666666,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_23">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
       </TryCatch.Finally>
     </TryCatch>
   </Sequence>

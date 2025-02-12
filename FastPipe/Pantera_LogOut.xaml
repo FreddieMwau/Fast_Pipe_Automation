@@ -101,7 +101,7 @@
       <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="Pantera_LogOut" sap:VirtualizedContainerService.HintSize="653.3333333333334,415.37333333333333" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="Pantera_LogOut" sap:VirtualizedContainerService.HintSize="619.3333333333334,442.04" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="bool_SignedIn" />
     </Flowchart.Variables>
@@ -154,7 +154,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="416,57.333333333333336" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
-                <Delay Duration="00:00:35" sap:VirtualizedContainerService.HintSize="416,124" sap2010:WorkflowViewState.IdRef="Delay_2" />
+                <Delay Duration="00:00:15" sap:VirtualizedContainerService.HintSize="416,124" sap2010:WorkflowViewState.IdRef="Delay_2" />
                 <ui:UiElementExists DisplayName="Element Exists 'DIV'" Exists="[bool_SignedIn]" sap:VirtualizedContainerService.HintSize="416,132.66666666666666" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
                   <ui:UiElementExists.Target>
                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d69a6189-8626-401f-b391-d35b6d9e62bc" InformativeScreenshot="8dedb7ca0393296b923edb6aadc03515" Selector="&lt;html app='msedge.exe' title='Project Invites' /&gt;&lt;webctrl tag='NAV' /&gt;">
