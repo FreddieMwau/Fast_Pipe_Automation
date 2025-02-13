@@ -140,7 +140,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="492,57.333333333333336" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
-                  <Delay DisplayName="Delay 5s" Duration="00:00:15" sap:VirtualizedContainerService.HintSize="492,124" sap2010:WorkflowViewState.IdRef="Delay_2" />
+                  <Delay DisplayName="Delay 5s" Duration="00:00:09" sap:VirtualizedContainerService.HintSize="492,124" sap2010:WorkflowViewState.IdRef="Delay_2" />
                   <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="492,450.6666666666667" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:10">
                     <ui:RetryScope.ActivityBody>
                       <ActivityAction>

@@ -139,7 +139,7 @@
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Extract_Zip_Move_Folder" sap:VirtualizedContainerService.HintSize="655.9999999999999,7827.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Extract_Zip_Move_Folder" sap:VirtualizedContainerService.HintSize="655.9999999999999,7884.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_ExtractionFolder" />
       <Variable x:TypeArguments="x:String" Name="str_FoldersPresent" />
@@ -150,7 +150,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="618.6666666666666,7804.666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="618.6666666666666,7862" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Variables>
         <Variable x:TypeArguments="x:String" Name="str_FolderName" />
       </TryCatch.Variables>
@@ -462,7 +462,7 @@
                     <uix:NClick.Target>
                       <uix:TargetAnchorable BrowserURL="app.panteratools.com" DesignTimeRectangle="109, 126, 344, 67" DesignTimeScaleFactor="1.5" ElementType="Icon" FullSelectorArgument="&lt;webctrl tag='IMG' /&gt;" FuzzyAccuracy="0.9" FuzzySelectorArgument="&lt;webctrl tag='IMG' type='' class='header-logo' aaname=' &amp;#x9;&amp;#x9; &amp;#x9;' /&gt;" Guid="0611fc74-15a8-4b50-a528-69c99c78eec8" InformativeScreenshot="0877e81f2f48ee0f5406cd54cb8136df.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Dashboard' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive">
                         <uix:TargetAnchorable.Anchors>
-                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                             <uix:Target CVScreenId="0d6b4ffc-31fd-45ea-bfd5-ee837148b65c" CvTextArea="457, 153, 43, 19" CvTextArgument="Free" CvType="Text" DesignTimeRectangle="459, 148, 40, 32" ElementType="Text" FuzzyAccuracy="0.9" FuzzySelectorArgument="&lt;webctrl tag='SPAN' type='' class='fs-14 subscription-name' aaname=' Free' check:innerText='Free' /&gt;" Guid="63a813b0-893f-46b8-a7fe-892884513d2f" SearchSteps="FuzzySelector, CV" />
                           </scg:List>
                         </uix:TargetAnchorable.Anchors>
@@ -805,14 +805,14 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence sap2010:Annotation.AnnotationText="Throw exception and delete bid folder" DisplayName="Business Exception" sap:VirtualizedContainerService.HintSize="616.6666666666666,292" sap2010:WorkflowViewState.IdRef="Sequence_38">
+            <Sequence sap2010:Annotation.AnnotationText="Throw exception and delete bid folder" DisplayName="Business Exception" sap:VirtualizedContainerService.HintSize="616.6666666666666,349.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_38">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:MultipleAssign DisplayName="Assign - Error Message &amp; Boolean flag" sap:VirtualizedContainerService.HintSize="582.6666666666666,201.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_10">
+              <ui:MultipleAssign DisplayName="Assign - Error Message &amp; Boolean flag" sap:VirtualizedContainerService.HintSize="582.6666666666666,210.66666666666666" sap2010:WorkflowViewState.IdRef="MultipleAssign_10">
                 <ui:MultipleAssign.AssignOperations>
                   <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_22">
@@ -842,6 +842,7 @@
                   </scg:List>
                 </ui:MultipleAssign.AssignOperations>
               </ui:MultipleAssign>
+              <Rethrow sap:VirtualizedContainerService.HintSize="582.6666666666666,48" sap2010:WorkflowViewState.IdRef="Rethrow_2" />
             </Sequence>
           </ActivityAction>
         </Catch>
@@ -871,14 +872,14 @@
                     <ActivityAction.Argument2>
                       <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
                     </ActivityAction.Argument2>
-                    <Sequence DisplayName="Delete Backed Up Bid Folder" sap:VirtualizedContainerService.HintSize="452,446" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                    <Sequence DisplayName="Delete Backed Up Bid Folder" sap:VirtualizedContainerService.HintSize="452,236" sap2010:WorkflowViewState.IdRef="Sequence_42">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <If Condition="[CurrentFolder.ToString.ToLower.Contains(in_str_BidFolderName.ToLower)]" sap:VirtualizedContainerService.HintSize="418,386" sap2010:WorkflowViewState.IdRef="If_11">
+                      <If Condition="[CurrentFolder.ToString.ToLower.Contains(in_str_BidFolderName.ToLower)]" sap:VirtualizedContainerService.HintSize="416,174.66666666666666" sap2010:WorkflowViewState.IdRef="If_11">
                         <If.Then>
                           <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,164.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_40">
                             <sap:WorkflowViewStateService.ViewState>
