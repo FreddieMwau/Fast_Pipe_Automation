@@ -107,7 +107,7 @@
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="Downloads_Bid" sap:VirtualizedContainerService.HintSize="1547,494.424" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="Downloads_Bid" sap:VirtualizedContainerService.HintSize="619.3333333333334,442.04" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:Int32" Name="int_Counter" />
       <Variable x:TypeArguments="x:Boolean" Name="bool_StateMatchFound" />
@@ -131,7 +131,7 @@
           <av:PointCollection x:Key="ConnectorLocation">770,205 770,250</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence DisplayName="Initialize Variables" sap:VirtualizedContainerService.HintSize="513,230" sap2010:WorkflowViewState.IdRef="Sequence_1">
+      <Sequence DisplayName="Initialize Variables" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_1">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:String" Name="str_Link" />
         </Sequence.Variables>
@@ -140,7 +140,7 @@
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:MultipleAssign DisplayName="Initialize variables" sap:VirtualizedContainerService.HintSize="479,170" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+        <ui:MultipleAssign DisplayName="Initialize variables" sap:VirtualizedContainerService.HintSize="478.6666666666667,170.66666666666666" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
           <ui:MultipleAssign.AssignOperations>
             <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -191,7 +191,7 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,164" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Bid opened&quot;]" />
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Bid opened&quot;]" />
               </Sequence>
             </FlowStep>
           </FlowDecision.True>
@@ -204,7 +204,7 @@
                   <av:PointCollection x:Key="ConnectorLocation">940,375 940,405 770,405 770,310</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence sap2010:Annotation.AnnotationText="This sequence will perform the following :&#xA;- Get the State of the Bid searched&#xA;- Validate it against the set of State extracted.&#xA;- If it's so open the bid onto the Bid Dashboard page.&#xA;- If not so check the next bid row in the table." DisplayName="Loop through States" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <Sequence sap2010:Annotation.AnnotationText="This sequence will perform the following :&#xA;- Get the State of the Bid searched&#xA;- Validate it against the set of State extracted.&#xA;- If it's so open the bid onto the Bid Dashboard page.&#xA;- If not so check the next bid row in the table." DisplayName="Loop through States" sap:VirtualizedContainerService.HintSize="630,1955.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="str_State" />
                 </Sequence.Variables>
@@ -214,16 +214,16 @@
                     <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:05">
+                <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="596,480.6666666666667" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:05">
                   <ui:RetryScope.ActivityBody>
                     <ActivityAction>
-                      <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="416,190" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                      <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="450,190" sap2010:WorkflowViewState.IdRef="Sequence_8">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text State Text" sap:VirtualizedContainerService.HintSize="382,130" sap2010:WorkflowViewState.IdRef="GetValue_1">
+                        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text State Text" sap:VirtualizedContainerService.HintSize="416,130" sap2010:WorkflowViewState.IdRef="GetValue_1">
                           <ui:GetValue.Target>
                             <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7e94dd2d-d4a6-4575-950c-30618535410a" InformativeScreenshot="c5c320bf491e7bba700c7a7aa9cc4d4b" Selector="[string.Format(&quot;&lt;html app='msedge.exe' title='Project Invites' /&gt;&lt;webctrl id='dt_*' tag='TABLE' /&gt;&lt;webctrl class='sorting_1' tableRow='{0}' tag='TD' /&gt;&quot;, int_Counter)]">
                               <ui:Target.TimeoutMS>
@@ -246,27 +246,27 @@
                   </ui:RetryScope.Condition>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:RetryScope>
-                <If sap2010:Annotation.AnnotationText="Validates the extracted bid State against the bid on the table" Condition="[in_TransactionItem(&quot;State&quot;).ToString = str_State]" DisplayName="Validate Bid State" sap:VirtualizedContainerService.HintSize="416,105" sap2010:WorkflowViewState.IdRef="If_1">
+                <If sap2010:Annotation.AnnotationText="Validates the extracted bid State against the bid on the table" Condition="[in_TransactionItem(&quot;State&quot;).ToString = str_State]" DisplayName="Validate Bid State" sap:VirtualizedContainerService.HintSize="596,1414.6666666666667" sap2010:WorkflowViewState.IdRef="If_1">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <If.Then>
-                    <Sequence DisplayName="Then (States Match)" sap:VirtualizedContainerService.HintSize="560,1071" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <Sequence DisplayName="Then (States Match)" sap:VirtualizedContainerService.HintSize="594,1085.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Assign sap:VirtualizedContainerService.HintSize="526,114" sap2010:WorkflowViewState.IdRef="Assign_1">
+                      <Assign sap:VirtualizedContainerService.HintSize="560,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:Boolean">[bool_StateMatchFound]</OutArgument>
                         </Assign.To>
@@ -274,28 +274,28 @@
                           <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                         </Assign.Value>
                       </Assign>
-                      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Edge: Project Invites" sap:VirtualizedContainerService.HintSize="526,897" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="c72df545-77b4-4a95-86ad-e30861d44be1" Version="V2">
+                      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Edge: Project Invites" sap:VirtualizedContainerService.HintSize="560,908" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="c72df545-77b4-4a95-86ad-e30861d44be1" Version="V2">
                         <uix:NApplicationCard.Body>
                           <ActivityAction x:TypeArguments="x:Object">
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                             </ActivityAction.Argument>
-                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="492,657" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="526,666" sap2010:WorkflowViewState.IdRef="Sequence_6">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="458,483" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="3" RetryInterval="00:00:05">
+                              <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="492,490.6666666666667" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="3" RetryInterval="00:00:05">
                                 <ui:RetryScope.ActivityBody>
                                   <ActivityAction>
-                                    <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="416,276" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                    <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="450,280" sap2010:WorkflowViewState.IdRef="Sequence_9">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <uix:NHover DelayAfter="2" DisplayName="Hover over the Action Buttons Table Cell" sap:VirtualizedContainerService.HintSize="382,216" sap2010:WorkflowViewState.IdRef="NHover_2" ScopeIdentifier="c72df545-77b4-4a95-86ad-e30861d44be1" Version="V4">
+                                      <uix:NHover DelayAfter="2" DisplayName="Hover over the Action Buttons Table Cell" sap:VirtualizedContainerService.HintSize="416,220" sap2010:WorkflowViewState.IdRef="NHover_2" ScopeIdentifier="c72df545-77b4-4a95-86ad-e30861d44be1" Version="V4">
                                         <uix:NHover.Target>
                                           <uix:TargetAnchorable BrowserURL="app.panteratools.com" DesignTimeRectangle="1790, 330, 105, 68" DesignTimeScaleFactor="1" FullSelectorArgument="[string.Format(&quot;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableCol='7' tableRow='{0}' tag='TD' /&gt;&quot;, int_Counter)]" Guid="9988da88-4f04-41bb-b423-582a2687e417" InformativeScreenshot="419a00c756de948dbf2319072d217ad8.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Project Invites' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                                         </uix:NHover.Target>
@@ -317,7 +317,7 @@
                                   <ActivityFunc x:TypeArguments="x:Boolean" />
                                 </ui:RetryScope.Condition>
                               </ui:RetryScope>
-                              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Open the Bid Button" sap:VirtualizedContainerService.HintSize="458,112" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="7000" DisplayName="Click Open the Bid Button" sap:VirtualizedContainerService.HintSize="492,112.66666666666667" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                                 <ui:Click.CursorPosition>
                                   <ui:CursorPosition Position="Center">
                                     <ui:CursorPosition.OffsetX>
@@ -355,13 +355,13 @@
                     </Sequence>
                   </If.Then>
                   <If.Else>
-                    <Sequence DisplayName="Else (State Don't Match)" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                    <Sequence DisplayName="Else (State Don't Match)" sap:VirtualizedContainerService.HintSize="594,168" sap2010:WorkflowViewState.IdRef="Sequence_5">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Assign DisplayName="Increment int_Counter" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_2">
+                      <Assign DisplayName="Increment int_Counter" sap:VirtualizedContainerService.HintSize="560,108" sap2010:WorkflowViewState.IdRef="Assign_2">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:Int32">[int_Counter]</OutArgument>
                         </Assign.To>

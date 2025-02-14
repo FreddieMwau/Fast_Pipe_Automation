@@ -127,7 +127,7 @@
       <AssemblyReference>UiPath.Testing</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Notifications" sap:VirtualizedContainerService.HintSize="601.9999999999999,3170.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Notifications" sap:VirtualizedContainerService.HintSize="925.9999999999999,3170.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_ExistingData" />
       <Variable x:TypeArguments="sd:EnumerableRowCollection(sd:DataRow)" Name="enum_MatchedResults" />
@@ -205,7 +205,7 @@
                         <ui:AssignOperation.Value>
                           <InArgument x:TypeArguments="sd:EnumerableRowCollection(sd:DataRow)" xml:space="preserve">[dt_ExistingData.AsEnumerable().
     Where(Function(row1) in_dt_TransactionData.AsEnumerable().
-        Any(Function(row2) row2("Name").ToString().Trim().ToLower() = row1("Bid Name").ToString().Trim().ToLower()))]</InArgument>
+        Any(Function(row2) row2("Name").ToString().Trim().ToLower() = row1("PROJECT NAME").ToString().Trim().ToLower()))]</InArgument>
                         </ui:AssignOperation.Value>
                       </ui:AssignOperation>
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
@@ -319,8 +319,8 @@
                     </Sequence>
                   </If.Else>
                 </If>
-                <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="False" DataTable="[dt_SuccessfulBids]" DisplayName="Write Successful Bids" sap:VirtualizedContainerService.HintSize="514.6666666666666,148" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Successful Bids" WorkbookPath="[str_FileName]" />
-                <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="False" DataTable="[dt_ExceptionsData]" DisplayName="Write Unsuccessful Bids" sap:VirtualizedContainerService.HintSize="514.6666666666666,148" sap2010:WorkflowViewState.IdRef="WriteRange_3" SheetName="Exceptions" WorkbookPath="[str_FileName]" />
+                <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dt_SuccessfulBids]" DisplayName="Write Successful Bids" sap:VirtualizedContainerService.HintSize="514.6666666666666,148" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Successful Bids" WorkbookPath="[str_FileName]" />
+                <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dt_ExceptionsData]" DisplayName="Write Unsuccessful Bids" sap:VirtualizedContainerService.HintSize="514.6666666666666,148" sap2010:WorkflowViewState.IdRef="WriteRange_3" SheetName="Exceptions" WorkbookPath="[str_FileName]" />
                 <umab:OutlookApplicationCard Account="catherine.mwai@thejitu.com" AccountMismatchBehavior="UseDefaultEmailAccount" DisplayName="Use Desktop Outlook App" sap:VirtualizedContainerService.HintSize="514.6666666666666,444" sap2010:WorkflowViewState.IdRef="OutlookApplicationCard_1">
                   <umab:OutlookApplicationCard.Body>
                     <ActivityAction x:TypeArguments="um:IMailQuickHandle">

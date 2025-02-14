@@ -107,13 +107,13 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Duplicates_Validation" sap:VirtualizedContainerService.HintSize="655.9999999999999,1821.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Duplicates_Validation" sap:VirtualizedContainerService.HintSize="925.9999999999999,1536" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="506,1798.6666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="506,1513.3333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
         <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="504,1258" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
@@ -216,7 +216,7 @@
               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Send System Exception" sap:VirtualizedContainerService.HintSize="470,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="FastPipe\Notifications.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
                   <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_TransactionData">[Nothing]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_str_ReceipientEmailAddress">fredrick.mutua@griffinglobaltech.com</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_str_ReceipientEmailAddress">catherine.mwai@thejitu.com</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="in_str_EmailSubject">An Exception Occured during Data Extractions</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="in_str_EmailBody" xml:space="preserve">["Hello Cate,  
 

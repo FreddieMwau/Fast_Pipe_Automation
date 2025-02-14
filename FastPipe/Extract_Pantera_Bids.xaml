@@ -118,7 +118,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Extract_Pantera_Bids" sap:VirtualizedContainerService.HintSize="655.9999999999999,3156.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Extract_Pantera_Bids" sap:VirtualizedContainerService.HintSize="925.9999999999999,2191.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="dt_PanteraBidsDT" />
       <Variable x:TypeArguments="scg:List(sd:DataRow)" Name="list_FilteredRows" />
@@ -128,9 +128,9 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="554,3134" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="550.6666666666666,2168.6666666666665" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="Extract Table Bids" sap:VirtualizedContainerService.HintSize="552,2093.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Extract Table Bids" sap:VirtualizedContainerService.HintSize="548.6666666666666,1128" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="s:String[]" Name="str_StatesFilter" />
           </Sequence.Variables>
@@ -139,7 +139,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="518,57.333333333333336" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Trace" Message="[&quot; Started Exctrating Bids Table&quot;]">
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="514.6666666666666,57.333333333333336" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Trace" Message="[&quot; Started Exctrating Bids Table&quot;]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -147,27 +147,29 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:LogMessage>
-          <Delay DisplayName="Delay 45s" Duration="00:00:10" sap:VirtualizedContainerService.HintSize="518,124" sap2010:WorkflowViewState.IdRef="Delay_1" />
-          <Sequence DisplayName="Extracting Pantera Bids Table" sap:VirtualizedContainerService.HintSize="518,492" sap2010:WorkflowViewState.IdRef="Sequence_22">
+          <Delay DisplayName="Delay 45s" Duration="00:00:10" sap:VirtualizedContainerService.HintSize="514.6666666666666,124" sap2010:WorkflowViewState.IdRef="Delay_1" />
+          <Sequence DisplayName="Extracting Pantera Bids Table" sap:VirtualizedContainerService.HintSize="514.6666666666666,140" sap2010:WorkflowViewState.IdRef="Sequence_22">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Pantera Bids" sap:VirtualizedContainerService.HintSize="484,400" sap2010:WorkflowViewState.IdRef="BrowserScope_6" InformativeScreenshot="dc90c602bd56850125cdee925cd22796" Selector="&lt;html app='msedge.exe' title='Project Invites' /&gt;">
+            <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Pantera Bids" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="BrowserScope_6" InformativeScreenshot="dc90c602bd56850125cdee925cd22796" Selector="&lt;html app='msedge.exe' title='Project Invites' /&gt;">
               <ui:BrowserScope.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,190" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_23">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:ExtractData DelayBetweenPagesMS="{x:Null}" ContinueOnError="True" DataTable="[dt_PanteraBidsDT]" DisplayName="Extract Pantera Bid Table Content " ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Name' attr='fulltext' /&gt;&lt;column name='General Contractor' attr='fulltext' /&gt;&lt;column name='City' attr='fulltext' /&gt;&lt;column name='State' attr='fulltext' /&gt;&lt;column name='Bids Due' attr='fulltext' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="416,130" sap2010:WorkflowViewState.IdRef="ExtractData_4" MaxNumberOfResults="3500" NextLinkSelector="&lt;webctrl css-selector='body&amp;gt;form&amp;gt;div&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li' idx='9' tag='LI' /&gt;" SimulateClick="True">
+                    <ui:ExtractData DelayBetweenPagesMS="{x:Null}" ContinueOnError="True" DataTable="[dt_PanteraBidsDT]" DisplayName="Extract Pantera Bid Table Content " ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Name' attr='fulltext' /&gt;&lt;column name='General Contractor' attr='fulltext' /&gt;&lt;column name='City' attr='fulltext' /&gt;&lt;column name='State' attr='fulltext' /&gt;&lt;column name='Bids Due' attr='fulltext' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="ExtractData_4" MaxNumberOfResults="3500" NextLinkSelector="&lt;webctrl css-selector='body&amp;gt;form&amp;gt;div&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li' idx='9' tag='LI' /&gt;" SimulateClick="True">
                       <ui:ExtractData.Target>
                         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6514b3cf-7724-4b7f-a91c-d259f0f3d581" InformativeScreenshot="05841f0ed18b5a3d61ec2acfdcb70b68" Selector="&lt;webctrl tag='TABLE' aaname=' Name General Contractor City State Bids Due' /&gt;" WaitForReady="COMPLETE">
                           <ui:Target.TimeoutMS>
@@ -175,13 +177,25 @@
                           </ui:Target.TimeoutMS>
                         </ui:Target>
                       </ui:ExtractData.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
                     </ui:ExtractData>
                   </Sequence>
                 </ActivityAction>
               </ui:BrowserScope.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
             </ui:BrowserScope>
           </Sequence>
-          <If Condition="[dt_PanteraBidsDT.RowCount &gt; 0]" DisplayName="Validate Pantera Bids &gt; 0" sap:VirtualizedContainerService.HintSize="518,1192.6666666666667" sap2010:WorkflowViewState.IdRef="If_1">
+          <If Condition="[dt_PanteraBidsDT.RowCount &gt; 0]" DisplayName="Validate Pantera Bids &gt; 0" sap:VirtualizedContainerService.HintSize="514.6666666666666,579.3333333333334" sap2010:WorkflowViewState.IdRef="If_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -189,7 +203,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="512.6666666666666,847.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="512.6666666666666,383.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -213,8 +227,8 @@
                         <ui:AssignOperation.Value>
                           <InArgument x:TypeArguments="scg:List(sd:DataRow)" xml:space="preserve">[(From row In dt_PanteraBidsDT.AsEnumerable()
                         Where Not String.IsNullOrEmpty(row("Bids Due").ToString()) AndAlso DateTime.TryParse(row("Bids Due").ToString(), Nothing) _
-                        AndAlso DateTime.Parse(row("Bids Due").ToString()) &gt;= DateTime.Now.AddDays(8) _
-                        AndAlso DateTime.Parse(row("Bids Due").ToString()) &lt;= DateTime.Now.AddDays(9) _
+                        AndAlso DateTime.Parse(row("Bids Due").ToString()) &gt;= DateTime.Now.AddDays(3) _
+                        AndAlso DateTime.Parse(row("Bids Due").ToString()) &lt;= DateTime.Now.AddDays(10) _
                         AndAlso str_StatesFilter.Contains(row("State").ToString())
                         Select row).ToList()]</InArgument>
                         </ui:AssignOperation.Value>
@@ -224,18 +238,27 @@
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:MultipleAssign>
-                <If Condition="[list_FilteredRows.any()]" DisplayName="Validate Filtered Rows isn't Empty" sap:VirtualizedContainerService.HintSize="478.6666666666667,512" sap2010:WorkflowViewState.IdRef="If_2">
+                <If Condition="[list_FilteredRows.any()]" DisplayName="Validate Filtered Rows isn't Empty" sap:VirtualizedContainerService.HintSize="478.6666666666667,48" sap2010:WorkflowViewState.IdRef="If_2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
                   <If.Then>
-                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,213.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_8">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Assign sap2010:Annotation.AnnotationText="Filtered Bids will hold all Bids that fit our set criteria which will act as the Queue" DisplayName="Assign - dt_FilteredBids" sap:VirtualizedContainerService.HintSize="434,153.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_1">
+                      <Assign sap2010:Annotation.AnnotationText="Filtered Bids will hold all Bids that fit our set criteria which will act as the Queue" DisplayName="Assign - dt_FilteredBids" sap:VirtualizedContainerService.HintSize="382,110" sap2010:WorkflowViewState.IdRef="Assign_1">
                         <Assign.To>
                           <OutArgument x:TypeArguments="sd:DataTable">[out_dt_FilteredBids]</OutArgument>
                         </Assign.To>
@@ -245,25 +268,34 @@
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </Assign>
                     </Sequence>
                   </If.Then>
                   <If.Else>
-                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,168" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_9">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Assign DisplayName="Assign - dt_FilteredBids" sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_2">
+                      <Assign DisplayName="Assign - dt_FilteredBids" sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="Assign_2">
                         <Assign.To>
                           <OutArgument x:TypeArguments="sd:DataTable">[out_dt_FilteredBids]</OutArgument>
                         </Assign.To>
                         <Assign.Value>
                           <InArgument x:TypeArguments="sd:DataTable">[dt_PanteraBidsDT.Clone()]</InArgument>
                         </Assign.Value>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
                       </Assign>
                     </Sequence>
                   </If.Else>
@@ -271,18 +303,26 @@
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence sap2010:Annotation.AnnotationText="Throw Business Exception informing Devs that the Bids extractions has failed" DisplayName="Else" sap:VirtualizedContainerService.HintSize="512.6666666666666,205.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_7">
+              <Sequence sap2010:Annotation.AnnotationText="Throw Business Exception informing Devs that the Bids extractions has failed" DisplayName="Else" sap:VirtualizedContainerService.HintSize="512.6666666666666,56" sap2010:WorkflowViewState.IdRef="Sequence_7">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Throw DisplayName="Throw Business Exception" Exception="[New BusinessRuleException(&quot;The DataTable is null or contains no rows.&quot;)]" sap:VirtualizedContainerService.HintSize="478.6666666666667,114.66666666666667" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                <Throw DisplayName="Throw Business Exception" Exception="[New BusinessRuleException(&quot;The DataTable is null or contains no rows.&quot;)]" sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="Throw_1">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Throw>
               </Sequence>
             </If.Else>
           </If>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="518,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Trace" Message="[&quot;Completed Exctrating Bids Table&quot;]" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Trace" Message="[&quot;Completed Exctrating Bids Table&quot;]" />
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
@@ -297,14 +337,14 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="System Exception" sap:VirtualizedContainerService.HintSize="552,462" sap2010:WorkflowViewState.IdRef="Sequence_25">
+            <Sequence DisplayName="System Exception" sap:VirtualizedContainerService.HintSize="484,462" sap2010:WorkflowViewState.IdRef="Sequence_25">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log  System Exception Message" sap:VirtualizedContainerService.HintSize="518,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[&quot;Error occured &quot; + exception.Message]" />
-              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Send System Exception" sap:VirtualizedContainerService.HintSize="518,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="FastPipe\Notifications.xaml">
+              <ui:LogMessage DisplayName="Log  System Exception Message" sap:VirtualizedContainerService.HintSize="450,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Error occured &quot; + exception.Message]" />
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Send System Exception" sap:VirtualizedContainerService.HintSize="450,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="FastPipe\Notifications.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
                   <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_TransactionData">[Nothing]</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="in_str_ReceipientEmailAddress">catherine.mwai@thejitu.com</InArgument>
@@ -317,7 +357,7 @@ Fast Pipe Automation Bot "]</InArgument>
                   <InArgument x:TypeArguments="x:Boolean" x:Key="in_bool_AttachReport">False</InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
-              <Rethrow sap:VirtualizedContainerService.HintSize="518,48" sap2010:WorkflowViewState.IdRef="Rethrow_2" />
+              <Rethrow sap:VirtualizedContainerService.HintSize="450,48" sap2010:WorkflowViewState.IdRef="Rethrow_2" />
             </Sequence>
           </ActivityAction>
         </Catch>
@@ -332,20 +372,20 @@ Fast Pipe Automation Bot "]</InArgument>
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Business Exception" sap:VirtualizedContainerService.HintSize="552,284.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_24">
+            <Sequence DisplayName="Business Exception" sap:VirtualizedContainerService.HintSize="484,284.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_24">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log Business Exception Message" sap:VirtualizedContainerService.HintSize="518,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Error" Message="[&quot;Error occured &quot; + exception.Message]" />
-              <Rethrow sap:VirtualizedContainerService.HintSize="518,48" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+              <ui:LogMessage DisplayName="Log Business Exception Message" sap:VirtualizedContainerService.HintSize="450,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Fatal" Message="[&quot;Error occured &quot; + exception.Message]" />
+              <Rethrow sap:VirtualizedContainerService.HintSize="450,48" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
             </Sequence>
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>
       <TryCatch.Finally>
-        <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="552,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_26">
+        <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="484,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_26">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
