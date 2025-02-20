@@ -110,36 +110,36 @@
       <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="FastPipe_Upload" sap:VirtualizedContainerService.HintSize="925.9999999999999,3667.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="FastPipe_Upload" sap:VirtualizedContainerService.HintSize="1540,876" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="608,3644.6666666666665" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="553,853" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Variables>
         <Variable x:TypeArguments="x:Boolean" Name="bool_BidCreated" />
       </TryCatch.Variables>
       <TryCatch.Try>
-        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="606,2701.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="638,2727" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence sap:VirtualizedContainerService.HintSize="572,2641.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence sap:VirtualizedContainerService.HintSize="604,2667" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application: FastPIPE" sap:VirtualizedContainerService.HintSize="538,2558.6666666666665" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OpenMode="IfNotOpen" ScopeGuid="5d671c6f-9fad-4c9c-8668-ede806f6680f" Version="V2">
+            <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application: FastPIPE" sap:VirtualizedContainerService.HintSize="570,2584" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OpenMode="IfNotOpen" ScopeGuid="5d671c6f-9fad-4c9c-8668-ede806f6680f" Version="V2">
               <uix:NApplicationCard.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="504,2198.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="536,2230" sap2010:WorkflowViewState.IdRef="Sequence_13">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:Boolean" Name="bool_FastPipePopUp" />
                     </Sequence.Variables>
@@ -148,7 +148,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:UiElementExists DisplayName="Opening Pop Up" Exists="[bool_FastPipePopUp]" sap:VirtualizedContainerService.HintSize="470,139.33333333333334" sap2010:WorkflowViewState.IdRef="UiElementExists_4">
+                    <ui:UiElementExists DisplayName="Opening Pop Up" Exists="[bool_FastPipePopUp]" sap:VirtualizedContainerService.HintSize="502,139" sap2010:WorkflowViewState.IdRef="UiElementExists_4">
                       <ui:UiElementExists.Target>
                         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7beb6dc1-5fe0-4cf8-a970-e1c8074a724d" InformativeScreenshot="e2cfe0f879ec90c2bbc1f1c3330a667f" Selector="&lt;wnd app='fastest.fastpipe.exe' ctrlname='UpdateSoftwareForm' /&gt;&lt;ctrl name='FastPIPE' role='client' /&gt;">
                           <ui:Target.TimeoutMS>
@@ -160,19 +160,19 @@
                         </ui:Target>
                       </ui:UiElementExists.Target>
                     </ui:UiElementExists>
-                    <If Condition="[bool_FastPipePopUp]" sap:VirtualizedContainerService.HintSize="470,405.3333333333333" sap2010:WorkflowViewState.IdRef="If_3">
+                    <If Condition="[bool_FastPipePopUp]" sap:VirtualizedContainerService.HintSize="502,432" sap2010:WorkflowViewState.IdRef="If_3">
                       <If.Then>
-                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,174.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,173" sap2010:WorkflowViewState.IdRef="Sequence_16">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Throw Exception="[New Exception(&quot;Fast Pipe Pop Up present&quot;)]" sap:VirtualizedContainerService.HintSize="382,114.66666666666667" sap2010:WorkflowViewState.IdRef="Throw_3" />
+                          <Throw Exception="[New Exception(&quot;Fast Pipe Pop Up present&quot;)]" sap:VirtualizedContainerService.HintSize="382,113" sap2010:WorkflowViewState.IdRef="Throw_3" />
                         </Sequence>
                       </If.Then>
                       <If.Else>
-                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_17">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -181,7 +181,7 @@
                         </Sequence>
                       </If.Else>
                     </If>
-                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click to create a new job" sap:VirtualizedContainerService.HintSize="470,139.33333333333334" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click to create a new job" sap:VirtualizedContainerService.HintSize="502,139" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
                       <ui:Click.CursorPosition>
                         <ui:CursorPosition Position="Center">
                           <ui:CursorPosition.OffsetX>
@@ -209,7 +209,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:Click>
-                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Enter Bid Name" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="470,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="5d671c6f-9fad-4c9c-8668-ede806f6680f" Text="[io_dr_CurrentRow(&quot;PROJECT NAME&quot;).ToString.ToUpper]" Version="V4">
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Enter Bid Name" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="502,286" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="5d671c6f-9fad-4c9c-8668-ede806f6680f" Text="[io_dr_CurrentRow(&quot;PROJECT NAME&quot;).ToString.ToUpper]" Version="V4">
                       <uix:NTypeInto.Target>
                         <uix:TargetAnchorable CVScreenId="cef124a4-e823-4028-a65e-66b8326e683b" CvElementArea="165, 85, 418, 32" CvType="InputBox" DesignTimeRectangle="167, 87, 414, 31" DesignTimeScaleFactor="1.5" ElementType="InputBox" FullSelectorArgument="&lt;wnd ctrlname='JobNameTextBox' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='JobNameTextBox' /&gt;" Guid="5d877057-0f6f-4a56-807f-2b93b5934066" InformativeScreenshot="be9b27bb6bb90faa9f70a0f5e95e2fd7.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='fastest.fastpipe.exe' ctrlname='SiteJobForm' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
                           <uix:TargetAnchorable.Anchors>
@@ -230,7 +230,7 @@
                         </uix:VerifyExecutionTypeIntoOptions>
                       </uix:NTypeInto.VerifyOptions>
                     </uix:NTypeInto>
-                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Enter Bid Description" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="470,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="5d671c6f-9fad-4c9c-8668-ede806f6680f" Text="[io_dr_CurrentRow(&quot;CITY&quot;).ToString.ToUpper + &quot;,&quot; + io_dr_CurrentRow(&quot;STATE&quot;).ToString.ToUpper]" Version="V4">
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Enter Bid Description" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="502,286" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="5d671c6f-9fad-4c9c-8668-ede806f6680f" Text="[io_dr_CurrentRow(&quot;CITY&quot;).ToString.ToUpper + &quot;,&quot; + io_dr_CurrentRow(&quot;STATE&quot;).ToString.ToUpper]" Version="V4">
                       <uix:NTypeInto.Target>
                         <uix:TargetAnchorable CVScreenId="cef124a4-e823-4028-a65e-66b8326e683b" CvElementArea="165, 122, 418, 35" CvType="InputBox" DesignTimeRectangle="167, 126, 414, 31" DesignTimeScaleFactor="1.5" ElementType="InputBox" FullSelectorArgument="&lt;wnd ctrlname='DescriptionTextBox' /&gt;" FuzzyAccuracy="0.9" FuzzySelectorArgument="&lt;wnd ctrlname='DescriptionTextBox' /&gt;" Guid="8e425cdf-eef0-4280-9a0e-b763d2e72244" InformativeScreenshot="ca4e190df507fd3ce01ae148c1a0359b.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='fastest.fastpipe.exe' ctrlname='SiteJobForm' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
                           <uix:TargetAnchorable.Anchors>
@@ -251,7 +251,7 @@
                         </uix:VerifyExecutionTypeIntoOptions>
                       </uix:NTypeInto.VerifyOptions>
                     </uix:NTypeInto>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'OK'" sap:VirtualizedContainerService.HintSize="470,229.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5d671c6f-9fad-4c9c-8668-ede806f6680f" Version="V4">
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'OK'" sap:VirtualizedContainerService.HintSize="502,225" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5d671c6f-9fad-4c9c-8668-ede806f6680f" Version="V4">
                       <uix:NClick.Target>
                         <uix:TargetAnchorable CVScreenId="3dbb3cad-78eb-4d28-9d7e-bc052c6f2f0c" CvElementArea="354, 319, 111, 39" CvTextArea="394, 331, 27, 16" CvTextArgument="OK" CvType="Button" DesignTimeRectangle="354, 321, 111, 39" DesignTimeScaleFactor="1.5" ElementType="Button" FullSelectorArgument="&lt;wnd ctrlname='ButtonPanel' /&gt;&lt;wnd ctrlname='OKPushButton' /&gt;" FuzzyAccuracy="0.89" FuzzySelectorArgument="&lt;wnd ctrlname='ButtonPanel' /&gt;&lt;wnd ctrlname='OKPushButton' check:text='OK' /&gt;" Guid="0ab9ee02-e70e-49e1-8107-097520cf771c" InformativeScreenshot="4a838de81d3590b7bf0d8ea099a10d1f.png" ScopeSelectorArgument="&lt;wnd app='fastest.fastpipe.exe' ctrlname='SiteJobForm' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
                           <uix:TargetAnchorable.Anchors>
@@ -272,7 +272,7 @@
                         </uix:VerifyExecutionOptions>
                       </uix:NClick.VerifyOptions>
                     </uix:NClick>
-                    <ui:UiElementExists DisplayName="Bid Created Pop Up" Exists="[bool_BidCreated]" sap:VirtualizedContainerService.HintSize="470,139.33333333333334" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+                    <ui:UiElementExists DisplayName="Bid Created Pop Up" Exists="[bool_BidCreated]" sap:VirtualizedContainerService.HintSize="502,139" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
                       <ui:UiElementExists.Target>
                         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ab579606-bde8-4d3a-809a-6c730e7215fc" InformativeScreenshot="e4a12fa4ad5fd0365bc43ef7e9fd7833" Selector="&lt;wnd app='fastest.fastpipe.exe' ctrlname='MainForm' /&gt;&lt;wnd ctrlname='JobMainForm' /&gt;&lt;wnd ctrlname='JobTabControl' /&gt;">
                           <ui:Target.TimeoutMS>
@@ -284,15 +284,15 @@
                         </ui:Target>
                       </ui:UiElementExists.Target>
                     </ui:UiElementExists>
-                    <If Condition="[bool_BidCreated]" DisplayName="Validates if Bid was created" sap:VirtualizedContainerService.HintSize="470,498" sap2010:WorkflowViewState.IdRef="If_2">
+                    <If Condition="[bool_BidCreated]" DisplayName="Validates if Bid was created" sap:VirtualizedContainerService.HintSize="502,522" sap2010:WorkflowViewState.IdRef="If_2">
                       <If.Then>
-                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,339.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,334" sap2010:WorkflowViewState.IdRef="Sequence_14">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Close the pop up" sap:VirtualizedContainerService.HintSize="434,171.33333333333334" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="f4" KeyModifiers="Alt" SpecialKey="True">
+                          <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Close the pop up" sap:VirtualizedContainerService.HintSize="434,169" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="f4" KeyModifiers="Alt" SpecialKey="True">
                             <ui:SendHotkey.Target>
                               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="39cad42d-e6d8-4a67-9236-e85ffc359327">
                                 <ui:Target.TimeoutMS>
@@ -304,7 +304,7 @@
                               </ui:Target>
                             </ui:SendHotkey.Target>
                           </ui:SendHotkey>
-                          <Assign sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_4">
+                          <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_4">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:Object">[io_dr_CurrentRow("Entered into Fast Pipe")]</OutArgument>
                             </Assign.To>
@@ -315,7 +315,7 @@
                         </Sequence>
                       </If.Then>
                       <If.Else>
-                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_15">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -337,19 +337,25 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="519,668" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
           <ActivityAction x:TypeArguments="s:Exception">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="606,688" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="513,598" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:MultipleAssign DisplayName="Assign Error Message" sap:VirtualizedContainerService.HintSize="572,149.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+              <ui:MultipleAssign DisplayName="Assign Error Message" sap:VirtualizedContainerService.HintSize="479,148" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                 <ui:MultipleAssign.AssignOperations>
                   <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
@@ -369,20 +375,8 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:MultipleAssign>
-              <ui:DeleteFolderX DisplayName="Delete Folder" sap:VirtualizedContainerService.HintSize="572,114" sap2010:WorkflowViewState.IdRef="DeleteFolderX_1" Path="[in_str_BidFolderPath]" Recursive="True" />
-              <ui:CloseApplication DisplayName="Close Fast Pipe" sap:VirtualizedContainerService.HintSize="572,139.33333333333334" sap2010:WorkflowViewState.IdRef="CloseApplication_2">
-                <ui:CloseApplication.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2d674192-2f32-454d-9e26-6f32d11701fa" InformativeScreenshot="99c48549343e1873967d5862103d52d5" Selector="&lt;wnd app='fastest.fastpipe.exe' ctrlname='MainForm' /&gt;&lt;wnd ctrlname='TitleBar' /&gt;">
-                    <ui:Target.TimeoutMS>
-                      <InArgument x:TypeArguments="x:Int32" />
-                    </ui:Target.TimeoutMS>
-                    <ui:Target.WaitForReady>
-                      <InArgument x:TypeArguments="ui:WaitForReady" />
-                    </ui:Target.WaitForReady>
-                  </ui:Target>
-                </ui:CloseApplication.Target>
-              </ui:CloseApplication>
-              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Notifications - Invoke Workflow File (FastPipe\Notifications.xaml)" sap:VirtualizedContainerService.HintSize="572,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="FastPipe\Notifications.xaml">
+              <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="479,165" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="FastEST.FastPipe" />
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Notifications - Invoke Workflow File (FastPipe\Notifications.xaml)" sap:VirtualizedContainerService.HintSize="479,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="FastPipe\Notifications.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
                   <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_TransactionData">[Nothing]</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="in_str_ReceipientEmailAddress">catherine.mwai@thejitu.com</InArgument>
@@ -400,7 +394,7 @@ Fast Pipe Automation Bot "]</InArgument>
                   <InArgument x:TypeArguments="x:Boolean" x:Key="in_bool_AttachReport">False</InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
-              <Rethrow sap:VirtualizedContainerService.HintSize="572,48" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+              <Rethrow sap:VirtualizedContainerService.HintSize="479,48" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
             </Sequence>
           </ActivityAction>
         </Catch>
